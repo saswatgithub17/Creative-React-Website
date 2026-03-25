@@ -19,6 +19,7 @@ import Gymkhana from './pages/Gymkhana';
 import Gallery from './pages/Gallery';
 import Contacts from './pages/Contacts';
 import ICC from './pages/ICC';
+import GRC from './pages/GRC';
 
 // New Gymkhana pages
 import Technocrat from './pages/gymkhana/Technocrat';
@@ -106,6 +107,9 @@ export default function App() {
 
                     {/* ICC */}
                     <Route path="/icc" element={<ICC />} />
+
+                    {/* GRC */}
+                    <Route path="/grc" element={<GRC />} />
 
                     {/* NBA / NAAC / Vikshit Bharat */}
                     <Route path="/naac" element={<NAAC />} />

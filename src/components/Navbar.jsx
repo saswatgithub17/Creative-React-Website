@@ -56,6 +56,7 @@ const navItems = [
     { label: 'CKF Skills', to: '/ckf-skills' },
     { label: 'Contacts', to: '/contacts' },
     { label: 'ICC', to: '/icc' },
+    { label: 'GRC', to: '/grc' },
     {
         label: 'Logins',
         children: [
