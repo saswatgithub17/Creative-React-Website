@@ -413,7 +413,7 @@ Sent from: creativetechnocollege.ac.in`;
                     <div className="af-aside-card af-aside-courses">
                         <h3><i className="fa-solid fa-table-list"></i> Available Seats</h3>
                         {[
-                            { label: 'BBA', seats: 30, color: '#f5c518' },
+                            { label: 'BBA', seats: 120, color: '#f5c518' },
                             { label: 'BCA', seats: 120, color: '#00d4ff' },
                             { label: 'B.Sc CS(H)', seats: 128, color: '#7b61ff' },
                             { label: 'B.Sc DS', seats: 30, color: '#ff6b6b' },

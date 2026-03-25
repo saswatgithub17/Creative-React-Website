@@ -130,7 +130,7 @@ function StatsSection() {
 
 /* ── Courses ── */
 const courses = [
-    { abbr: 'BBA', full: 'Bachelor of Business Administration', seats: 30, icon: '💼', desc: 'Management, Marketing, Finance & Entrepreneurship' },
+    { abbr: 'BBA', full: 'Bachelor of Business Administration', seats: 120, icon: '💼', desc: 'Management, Marketing, Finance & Entrepreneurship' },
     { abbr: 'BCA', full: 'Bachelor of Computer Applications', seats: 120, icon: '💻', desc: 'Programming, Databases & Software Development' },
     { abbr: 'B.Sc (CS)', full: 'Bachelor of Science in Computer Science', seats: 128, icon: '🖥️', desc: 'Algorithms, Theory & Practical Programming' },
     { abbr: 'B.Sc (DS)', full: 'Bachelor of Science in Data Science', seats: 30, icon: '📊', desc: 'Machine Learning, Statistics & Data Analytics' },

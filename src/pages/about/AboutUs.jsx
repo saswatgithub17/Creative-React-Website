@@ -81,7 +81,7 @@ export default function AboutUs() {
                             {[
                                 { val: '15+', label: 'Years' },
                                 { val: '1500+', label: 'Alumni' },
-                                { val: '308', label: 'Seats' },
+                                { val: '398', label: 'Seats' },
                                 { val: '95%', label: 'Placement' },
                             ].map((s, i) => (
                                 <div key={i} className="reveal" style={{ transitionDelay: `${i * 0.08}s`, background: 'linear-gradient(135deg, var(--navy), var(--blue))', borderRadius: '12px', padding: '20px', textAlign: 'center', color: '#fff' }}>

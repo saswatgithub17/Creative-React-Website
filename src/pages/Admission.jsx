@@ -88,7 +88,7 @@ function Ring({ pct, color, label, seats, admitted }) {
 const courses = [
     {
         abbr: 'BBA', full: 'Bachelor of Business Administration',
-        seats: 30, duration: '4 Years', fee: '₹50,000/yr',
+        seats: 120, duration: '4 Years', fee: '₹50,000/yr',
         icon: 'fa-solid fa-briefcase',
         tags: ['Marketing', 'Finance', 'HR', 'Entrepreneurship'],
         accent: '#f5c518',
@@ -144,7 +144,7 @@ const coordinators = [
 
 /* seats filled in 2024 */
 const rings = [
-    { label: 'BBA', pct: 100, color: '#f5c518', seats: 30, admitted: 30 },
+    { label: 'BBA', pct: 100, color: '#f5c518', seats: 120, admitted: 120 },
     { label: 'BCA', pct: 50, color: '#00d4ff', seats: 120, admitted: 60 },
     { label: 'B.Sc CS(H)', pct: 53, color: '#7b61ff', seats: 128, admitted: 68 },
     { label: 'B.Sc DS', pct: 83, color: '#ff6b6b', seats: 36, admitted: 30 },
@@ -194,7 +194,7 @@ export default function Admission() {
                 {/* Quick Stats */}
                 <div className="adm2-hero-stats">
                     {[
-                        { icon: 'fa-solid fa-users', val: 308, suf: '+', label: 'Total Seats' },
+                        { icon: 'fa-solid fa-users', val: 398, suf: '+', label: 'Total Seats' },
                         { icon: 'fa-solid fa-graduation-cap', val: 1500, suf: '+', label: 'Alumni' },
                         { icon: 'fa-solid fa-trophy', val: 95, suf: '%', label: 'Placement Rate' },
                         { icon: 'fa-solid fa-calendar-days', val: 15, suf: '+', label: 'Years of Excellence' },
