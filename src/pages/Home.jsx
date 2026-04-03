@@ -1,5 +1,83 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+/* ── Admission Banner Popup ── */
+const bannerSlides = [
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup1.jpeg', caption: 'Admissions Open 2026–27', sub: 'BBA • BCA • B.Sc CS • B.Sc Data Science' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup2.jpeg', caption: '100% Placement Assistance', sub: 'Top Recruiters • Industry-Ready Programs' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup3.jpeg', caption: 'World-Class Campus & Library', sub: 'Modern Infrastructure • Expert Faculty' },
+];
+
+function AdmissionBanner({ onClose }) {
+    const [idx, setIdx] = useState(0);
+    const navigate = useNavigate();
+    const timer = useRef(null);
+
+    useEffect(() => {
+        timer.current = setInterval(() => setIdx(i => (i + 1) % bannerSlides.length), 3500);
+        return () => clearInterval(timer.current);
+    }, []);
+
+    const goTo = (n) => setIdx((n + bannerSlides.length) % bannerSlides.length);
+
+    return (
+        <div className="adm-banner-overlay" onClick={onClose}>
+            <div className="adm-banner-box" onClick={e => e.stopPropagation()}>
+                {/* Close button */}
+                <button className="adm-banner-close" onClick={onClose} aria-label="Close banner">
+                    <i className="fa-solid fa-xmark"></i>
+                </button>
+
+                {/* Image slider */}
+                <div className="adm-banner-slider">
+                    {bannerSlides.map((s, i) => (
+                        <div
+                            key={i}
+                            className={`adm-banner-slide ${i === idx ? 'active' : ''}`}
+                            style={{ backgroundImage: `url('${s.img}')` }}
+                        >
+                            <div className="adm-banner-slide-overlay" />
+                            <div className="adm-banner-slide-text">
+                                <p className="adm-banner-eyebrow"><i className="fa-solid fa-graduation-cap"></i> Creative Techno College</p>
+                                <h2>{s.caption}</h2>
+                                <p>{s.sub}</p>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Dots */}
+                    <div className="adm-banner-dots">
+                        {bannerSlides.map((_, i) => (
+                            <button key={i} className={`adm-banner-dot ${i === idx ? 'active' : ''}`} onClick={() => goTo(i)} />
+                        ))}
+                    </div>
+
+                    {/* Arrows */}
+                    <button className="adm-banner-arrow left" onClick={() => goTo(idx - 1)}>
+                        <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button className="adm-banner-arrow right" onClick={() => goTo(idx + 1)}>
+                        <i className="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                {/* CTA */}
+                <div className="adm-banner-footer">
+                    <div className="adm-banner-footer-text">
+                        <span className="adm-banner-tag">🎓 Admission 2026–27 Open Now!</span>
+                        <p>Seats are filling fast. Secure your future today.</p>
+                    </div>
+                    <button
+                        className="adm-banner-apply-btn"
+                        onClick={() => { onClose(); navigate('/admission/apply'); }}
+                    >
+                        <i className="fa-solid fa-paper-plane"></i> Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 /* ── Scroll Reveal Hook ── */
 function useReveal() {
@@ -167,9 +245,20 @@ const recruiters = [
 
 export default function Home() {
     useReveal();
+    const [showBanner, setShowBanner] = useState(true);
 
     return (
         <>
+            {/* Admission Popup Banner */}
+            {showBanner && <AdmissionBanner onClose={() => setShowBanner(false)} />}
+
+            {/* Blinking Admission Button (floating) */}
+            <Link to="/admission/apply" className="adm-float-btn">
+                <i className="fa-solid fa-graduation-cap"></i>
+                <span>Admission Open – Apply Now</span>
+                <span className="adm-float-ping" />
+            </Link>
+
             <HeroSlider />
 
             {/* About */}

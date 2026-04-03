@@ -29,7 +29,7 @@ const DEPARTMENTS = [
         color: '#f5c518',
         cards: [
             { title: 'Training & Placement', icon: 'fa-solid fa-briefcase', people: [{ name: 'Mr. Bhabani S. Sahoo', phone: ['+91 9668844571'], email: 'bhabaniwipro89@gmail.com' }, { name: 'Mr. Subhrajyoti Behera', phone: ['+91 9861071840'], email: 'subhyrajyoticafpl@gmail.com' }] },
-            { title: 'DISHA', icon: 'fa-solid fa-hands-holding-child', people: [{ name: 'Mr. Subhrajyoti Behera', phone: ['+91 9861071840'], email: 'subhyrajyoticafpl@gmail.com' }, { name: 'Ms. Neha Solanki', phone: ['+91 7873848515'], email: 'nehasolanki1411@gmail.com' }] },
+            { title: 'DISHA', icon: 'fa-solid fa-hands-holding-child', people: [{ name: 'Mr. Subhrajyoti Behera', phone: ['+91 9861071840'], email: 'subhyrajyoticafpl@gmail.com' }, { name: 'Ms. Neha Solanki', phone: [''], email: 'nehasolanki1411@gmail.com' }] },
             { title: 'Technocrat Club', icon: 'fa-solid fa-microchip', people: [{ name: 'Mr. Bhabani S. Sahoo', phone: ['+91 9668844571'] }, { name: 'Mr. Swastik R. Sahoo', phone: ['+91 6372877833'], email: 'sahooswastik406@gmail.com' }] },
             { title: 'Alumni', icon: 'fa-solid fa-graduation-cap', people: [{ name: 'Mr. Krishnasis Mishra', phone: ['+91 8249090003'], email: 'principal.creativecollege@gmail.com' }] },
         ],
