@@ -5578,12 +5578,22 @@ button { font-family: var(--font-head); cursor: pointer; }
 .adm-banner-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 0.7s ease;
+  overflow: hidden;
 }
 .adm-banner-slide.active { opacity: 1; }
+
+/* Fills the box perfectly for ANY image size or orientation */
+.adm-banner-slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
 
 .adm-banner-slide-overlay {
   position: absolute;

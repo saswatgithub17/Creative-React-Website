@@ -3,9 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 /* ── Admission Banner Popup ── */
 const bannerSlides = [
-    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup1.jpeg', caption: 'Admissions Open 2026–27', sub: 'BBA • BCA • B.Sc CS • B.Sc Data Science' },
-    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup2.jpeg', caption: '100% Placement Assistance', sub: 'Top Recruiters • Industry-Ready Programs' },
-    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/Admission/popup3.jpeg', caption: 'World-Class Campus & Library', sub: 'Modern Infrastructure • Expert Faculty' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/1.jpg', caption: 'Admissions Open 2026–27', sub: 'BBA • BCA • B.Sc CS • B.Sc Data Science' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/2.jpg', caption: '100% Placement Assistance', sub: 'Top Recruiters • Industry-Ready Programs' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/4.jpg', caption: 'World-Class Campus & Library', sub: 'Modern Infrastructure • Expert Faculty' },
 ];
 
 function AdmissionBanner({ onClose }) {
@@ -34,8 +34,8 @@ function AdmissionBanner({ onClose }) {
                         <div
                             key={i}
                             className={`adm-banner-slide ${i === idx ? 'active' : ''}`}
-                            style={{ backgroundImage: `url('${s.img}')` }}
                         >
+                            <img src={s.img} alt={s.caption} className="adm-banner-slide-img" />
                             <div className="adm-banner-slide-overlay" />
                             <div className="adm-banner-slide-text">
                                 <p className="adm-banner-eyebrow"><i className="fa-solid fa-graduation-cap"></i> Creative Techno College</p>

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const WHATSAPP_NUMBER = '919668844571';
+/* API endpoint — works on Hostinger after deployment */
+const SUBMIT_URL = `${import.meta.env.BASE_URL}Admission/submit.php`;
 
 const STEPS = [
     { id: 1, label: 'Personal Info', icon: 'fa-solid fa-user' },
@@ -47,6 +48,9 @@ export default function AdmissionApply() {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState('');
+    const [appId, setAppId] = useState(null);
     const [errors, setErrors] = useState({});
 
     const [form, setForm] = useState({
@@ -113,40 +117,27 @@ export default function AdmissionApply() {
     }
     function back() { setStep(s => s - 1); setErrors({}); }
 
-    function submit() {
-        const msg =
-            `*CTC Admission Application 2026-27*
-─────────────────────────────
-*PERSONAL DETAILS*
-Name       : ${form.fullName}
-DOB        : ${form.dob}
-Gender     : ${form.gender}
-Category   : ${form.category || 'General'}
-Mobile     : ${form.phone}
-Email      : ${form.email || '—'}
-
-*ACADEMIC DETAILS*
-10th School: ${form.school10}
-10th %/Grade: ${form.pct10}
-+2 School  : ${form.school12}
-Stream     : ${form.stream}
-+2 %/Grade : ${form.pct12}
-Year of Pass: ${form.yearPass}
-
-*COURSE & ADDRESS*
-Course     : ${form.course}
-Address    : ${form.address}
-District   : ${form.district}
-State      : ${form.state}
-PIN        : ${form.pincode}
-Has PC/Laptop: ${form.havePC || '—'}
-Ref Source : ${form.reference || '—'}
-─────────────────────────────
-Sent from: creativetechnocollege.ac.in`;
-
-        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, '_blank');
-        setSubmitted(true);
+    async function submit() {
+        setSubmitting(true);
+        setSubmitError('');
+        try {
+            const res  = await fetch(SUBMIT_URL, {
+                method : 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body   : JSON.stringify(form),
+            });
+            const json = await res.json();
+            if (json.success) {
+                setAppId(json.application_id);
+                setSubmitted(true);
+            } else {
+                setSubmitError(json.error || 'Submission failed. Please try again.');
+            }
+        } catch {
+            setSubmitError('Network error. Please check your connection and try again.');
+        } finally {
+            setSubmitting(false);
+        }
     }
 
     /* ── STEP RENDERERS ── */
@@ -170,7 +161,7 @@ Sent from: creativetechnocollege.ac.in`;
         </select>
     );
 
-    if (submitted) return <SuccessScreen name={form.fullName} course={form.course} navigate={navigate} />;
+    if (submitted) return <SuccessScreen name={form.fullName} course={form.course} appId={appId} navigate={navigate} />;
 
     return (
         <div className="af-page">
@@ -345,7 +336,7 @@ Sent from: creativetechnocollege.ac.in`;
                         <div className="af-form-section">
                             <h2 className="af-form-title"><i className="fa-solid fa-eye"></i> Review Your Application</h2>
                             <p style={{ color: 'var(--text-muted)', fontSize: '0.83rem', marginBottom: '24px' }}>
-                                Please review your information carefully. Clicking <strong>Submit Application</strong> will open WhatsApp to send your details to the admission office.
+                                Please review your information carefully. Clicking <strong>Submit Application</strong> will securely save your details directly to the database.
                             </p>
                             <div className="af-review-grid">
                                 <ReviewBlock title="Personal Information" icon="fa-solid fa-user" rows={[
@@ -374,9 +365,9 @@ Sent from: creativetechnocollege.ac.in`;
                                     ['Reference', form.reference || '—'],
                                 ]} />
                             </div>
-                            <div className="af-wa-notice">
-                                <i className="fa-brands fa-whatsapp"></i>
-                                <p>Your application will be sent via <strong>WhatsApp</strong> to the admission office. You may be contacted for document verification on the same number.</p>
+                            <div className="af-wa-notice" style={{ background: 'rgba(45,125,210,0.08)', borderColor: 'rgba(45,125,210,0.25)' }}>
+                                <i className="fa-solid fa-database" style={{ color: 'var(--cyan)' }}></i>
+                                <p>Your application will be <strong>securely stored</strong> in the college database. The admission team will contact you on your registered mobile number for document verification.</p>
                             </div>
                         </div>
                     )}
@@ -391,11 +382,23 @@ Sent from: creativetechnocollege.ac.in`;
                             <span className="af-step-count">Step {step} of {STEPS.length}</span>
                             {step < 4
                                 ? <button className="af-btn-next" onClick={next}>Next <i className="fa-solid fa-arrow-right"></i></button>
-                                : <button className="af-btn-submit" onClick={submit}>
-                                    <i className="fa-brands fa-whatsapp"></i> Submit via WhatsApp
-                                </button>
-                            }
-                        </div>
+                                : <button
+                                className="af-btn-submit"
+                                onClick={submit}
+                                disabled={submitting}
+                                style={{ opacity: submitting ? 0.7 : 1, cursor: submitting ? 'wait' : 'pointer' }}
+                            >
+                                {submitting
+                                    ? <><i className="fa-solid fa-spinner fa-spin"></i> Submitting…</>
+                                    : <><i className="fa-solid fa-paper-plane"></i> Submit Application</>}
+                            </button>
+                        }
+                    </div>
+                    {submitError && (
+                        <p style={{ color: '#e53e3e', fontSize: '0.82rem', marginTop: '10px', textAlign: 'right', fontFamily: 'var(--font-head)' }}>
+                            <i className="fa-solid fa-circle-exclamation"></i> {submitError}
+                        </p>
+                    )}
                     </div>
                 </div>
 
@@ -407,7 +410,7 @@ Sent from: creativetechnocollege.ac.in`;
                             <li>Admission is on a <strong>first-come, first-served</strong> basis.</li>
                             <li>Bring original documents on the day of admission.</li>
                             <li>Eligibility: 10+2 pass with min. <strong>45%</strong> marks.</li>
-                            <li>For queries call: <strong>+91 9778427170</strong></li>
+                            <li>For queries call: <strong>+91 9668844571</strong></li>
                         </ul>
                     </div>
                     <div className="af-aside-card af-aside-courses">
@@ -450,15 +453,20 @@ function ReviewBlock({ title, icon, rows }) {
     );
 }
 
-function SuccessScreen({ name, course, navigate }) {
+function SuccessScreen({ name, course, appId, navigate }) {
     return (
         <div className="af-success-page">
             <div className="af-success-card">
                 <div className="af-success-icon"><i className="fa-solid fa-circle-check"></i></div>
                 <h2>Application Submitted!</h2>
-                <p>Thank you, <strong>{name}</strong>! Your application for <strong>{course}</strong> has been sent to the Creative Techno College admission office via WhatsApp.</p>
+                <p>Thank you, <strong>{name}</strong>! Your application for <strong>{course}</strong> has been received by Creative Techno College.</p>
+                {appId && (
+                    <p style={{ marginTop: '14px', fontSize: '0.88rem', fontFamily: 'var(--font-head)', color: 'var(--blue-light)' }}>
+                        <i className="fa-solid fa-hashtag"></i> Application ID: <strong style={{ color: 'var(--gold)' }}>#{appId}</strong>
+                    </p>
+                )}
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '12px' }}>
-                    Our team will contact you on your registered mobile number for further steps. Please keep your documents ready.
+                    Our team will contact you on <strong>{name.split(' ')[0]}'s</strong> registered mobile number for further steps. Please keep your documents ready.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
                     <button className="btn-primary" onClick={() => navigate('/admission')}>
