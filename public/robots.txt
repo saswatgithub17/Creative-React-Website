@@ -1,0 +1,8 @@
+# robots.txt – Creative Techno College
+# https://www.creativecollege.in
+
+User-agent: *
+Allow: /
+
+# Point Googlebot to our sitemap
+Sitemap: https://www.creativecollege.in/sitemap.xml

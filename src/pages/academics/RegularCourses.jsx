@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 const COURSES = [
     {
@@ -240,6 +241,12 @@ function CourseCard({ course, index }) {
 export default function RegularCourses() {
     return (
         <div className="rc2-page">
+            <SEO
+                title="BBA, BCA, B.Sc CS & Data Science Courses in Angul – CTC"
+                description="Explore 4-year degree programs at Creative Techno College, Angul: BBA (120 seats), BCA (120 seats), B.Sc Computer Science (128 seats), B.Sc Data Science (30 seats). AICTE approved. Affiliated to Utkal University."
+                keywords="BBA college angul, BCA college angul, computer science college angul, data science college angul, best courses angul odisha, CTC angul courses, technical courses angul"
+                canonical="/academics/regular"
+            />
             <style>{`
                 .rc2-page { background: #f8faff; min-height: 100vh; }
 

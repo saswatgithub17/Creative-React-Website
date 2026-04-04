@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
 
 function useReveal() {
     useEffect(() => {
@@ -29,6 +30,13 @@ export default function AboutUs() {
 
     return (
         <>
+            <SEO
+                title="About Creative Techno College – Top AICTE College in Angul, Odisha"
+                description="Creative Techno College (CTC) Angul, established in 2010, is the best AICTE-approved college in Angul, Odisha. Located at Baluakata, Saradhapur, Angul. Affiliated to Utkal University. Hostel, transport, placement – all under one roof."
+                keywords="about creative techno college angul, CTC angul about, best college angul odisha, AICTE approved college angul, Utkal University affiliated college angul, professional college angul"
+                canonical="/about/ctc"
+            />
+
             {/* ── Hero ── */}
             <div className="page-hero">
                 <div className="page-hero-dots" />

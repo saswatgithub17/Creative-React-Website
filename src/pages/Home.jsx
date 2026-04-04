@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO';
+import LocalBusinessSchema from '../components/LocalBusinessSchema';
 
 /* ── Admission Banner Popup ── */
 const bannerSlides = [
@@ -243,12 +245,72 @@ const recruiters = [
     { name: 'Zoho', img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/zoho.jpg' },
 ];
 
+/* ── FAQ Section ── */
+const faqs = [
+    { q: 'Which is the best college in Angul?', a: 'Creative Techno College (CTC), Angul is the top-ranked professional and technical college in Angul, Odisha. AICTE-approved, affiliated to Utkal University, and established in 2010, CTC has consistently delivered quality education with a 95% placement rate.' },
+    { q: 'Is CTC Angul approved by AICTE?', a: 'Yes! CTC is approved by AICTE (All India Council for Technical Education) and permanently affiliated to Utkal University. It is also recognized by the Government of Odisha, Department of Higher Education.' },
+    { q: 'What courses are offered at Creative Techno College, Angul?', a: 'CTC offers 4-year degree programs: BBA (Business Administration) – 120 seats, BCA (Computer Applications) – 120 seats, B.Sc Computer Science (Honours) – 128 seats, and B.Sc Data Science – 30 seats.' },
+    { q: 'What is the placement record of Creative Techno College?', a: '1500+ students have been successfully placed in top companies like Wipro, TCS, Infosys, HCL, Capgemini, IBM, Cognizant, Accenture, and more. The highest package is ₹4.5 LPA with a 95% overall placement rate.' },
+    { q: 'How to apply for admission in CTC Angul 2026-27?', a: 'Eligibility: 10+2 pass with minimum 45% marks from any recognised board. Apply online at creativecollege.in or visit the campus at Baluakata, Saradhapur, Angul. Call +91-9778427170 for help.' },
+    { q: 'Does CTC Angul have hostel facilities?', a: 'Yes, CTC provides separate, secure hostel facilities for boys and girls with 24/7 security, comfortable rooms, and all essential amenities at affordable rates.' },
+];
+
+function FAQSection() {
+    const [open, setOpen] = useState(null);
+    return (
+        <section className="faq-section">
+            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                <span className="section-label">Got Questions?</span>
+                <h2 className="section-title">Frequently Asked <span>Questions</span></h2>
+                <p className="section-subtitle" style={{ margin: '0 auto' }}>
+                    Everything you need to know about Creative Techno College, Angul.
+                </p>
+            </div>
+            <div className="faq-list">
+                {faqs.map((f, i) => (
+                    <div key={i} className={`faq-item${open === i ? ' faq-open' : ''}`}>
+                        <button
+                            id={`faq-q-${i}`}
+                            className="faq-question"
+                            onClick={() => setOpen(open === i ? null : i)}
+                            aria-expanded={open === i}
+                            aria-controls={`faq-a-${i}`}
+                        >
+                            <span>{f.q}</span>
+                            <i className={`fa-solid fa-chevron-down faq-icon${open === i ? ' rotated' : ''}`}></i>
+                        </button>
+                        <div
+                            id={`faq-a-${i}`}
+                            className="faq-answer"
+                            role="region"
+                            aria-labelledby={`faq-q-${i}`}
+                        >
+                            <p>{f.a}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}
+
 export default function Home() {
     useReveal();
     const [showBanner, setShowBanner] = useState(true);
 
     return (
         <>
+            {/* ── Per-page SEO ── */}
+            <SEO
+                title="Creative Techno College, Angul"
+                noSuffix
+                description="Creative Techno College (CTC) is the top AICTE-approved college in Angul, Odisha. Offering BBA, BCA, B.Sc Computer Science & Data Science with 95% placement record. Affiliated to Utkal University. Admission open 2026-27."
+                keywords="top college in angul, best college angul, top technical college angul, top professional college angul, BCA college angul, BBA college angul, AICTE college angul, creative techno college angul, college in angul odisha"
+                canonical="/"
+            />
+            {/* ── Structured Data (JSON-LD for Google Knowledge Panel) ── */}
+            <LocalBusinessSchema />
+
             {/* Admission Popup Banner */}
             {showBanner && <AdmissionBanner onClose={() => setShowBanner(false)} />}
 
@@ -267,17 +329,20 @@ export default function Home() {
                     <span className="section-label">About Us</span>
                     <h2 className="section-title">Empowering Minds at <span>Creative Techno College</span></h2>
                     <p>
-                        Creative Techno College (CTC), Angul is a premier institution of higher education established
-                        under the aegis of Creative Knowledge Foundation. AICTE approved and affiliated to Utkal University,
-                        CTC has been a beacon of quality education since 2010.
+                        Creative Techno College (CTC), Angul – the <strong>top professional and technical college in Angul, Odisha</strong> –
+                        is established under the aegis of Creative Knowledge Foundation. AICTE-approved and permanently affiliated
+                        to Utkal University, CTC has been a beacon of quality education in Angul district since 2010.
                     </p>
                     <p>
-                        We offer industry-aligned programs in BBA, BCA, B.Sc (Computer Science), and B.Sc (Data Science),
-                        equipping students with the skills and knowledge needed to thrive in the modern world.
+                        Located at Baluakata, Saradhapur, Angul, we proudly serve students from across Angul, Dhenkanal,
+                        Sambalpur, Cuttack, and all of Odisha. We offer industry-aligned programs in BBA, BCA,
+                        B.Sc (Computer Science), and B.Sc (Data Science) — equipping students with skills
+                        to thrive in the modern corporate world.
                     </p>
                     <p>
-                        Our state-of-the-art infrastructure, experienced faculty, and strong industry connections ensure
-                        that every student receives a world-class education with 100% placement assistance.
+                        With state-of-the-art infrastructure, experienced faculty, and strong industry connections,
+                        CTC provides a world-class education with <strong>95% placement assistance</strong> and
+                        partnerships with 100+ top recruiting companies.
                     </p>
                     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/about/ctc" className="btn-primary">
@@ -422,6 +487,9 @@ export default function Home() {
                     ))}
                 </div>
             </section>
+
+            {/* FAQ */}
+            <FAQSection />
 
             {/* Maps */}
             <section className="maps-section">

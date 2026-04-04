@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '../components/SEO';
 
 /* ─────────────────────────────────────────
    DATA
@@ -191,6 +192,13 @@ export default function Contacts() {
 
     return (
         <>
+            <SEO
+                title="Contact Creative Techno College – Angul, Odisha | Phone, Address & Map"
+                description="Contact Creative Techno College (CTC), Angul. Campus address: Baluakata, Saradhapur, Angul 759143. Admissions helpline: +91-9778427170. Email: principal.creativecollege@gmail.com. Open Mon–Sat, 9AM–5PM."
+                keywords="creative techno college contact, CTC angul phone number, CTC angul address, college in angul contact, creative college angul helpline"
+                canonical="/contacts"
+            />
+
             {/* ══ HERO ══ */}
             <div className="ct-hero">
                 <div className="ct-hero-glow" />

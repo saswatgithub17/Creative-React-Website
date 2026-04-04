@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 /* ── Scroll-reveal hook ── */
 function useReveal() {
@@ -169,6 +170,13 @@ export default function Admission() {
     useReveal();
     return (
         <>
+            <SEO
+                title="Admission 2026-27 – BBA, BCA, B.Sc CS & Data Science | CTC Angul"
+                description="Apply for admission at Creative Techno College, Angul – top AICTE-approved college in Angul, Odisha. BBA (120 seats), BCA (120 seats), B.Sc CS (128 seats), B.Sc Data Science (30 seats). Eligibility: 10+2 with minimum 45%."
+                keywords="admission in angul college, CTC angul admission 2026, BCA admission angul, BBA admission angul, best college admission angul odisha, creative techno college admission"
+                canonical="/admission"
+            />
+
             {/* ══════════════════════════════════════════
                 HERO
             ══════════════════════════════════════════ */}

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import SEO from '../../components/SEO';
 
 /* ── Reveal hook ── */
 function useReveal() {
@@ -705,6 +706,12 @@ export default function PlacementStatistics() {
 
   return (
     <>
+      <SEO
+        title="Placement Record 2025 – 1500+ Placed | Creative Techno College Angul"
+        description="CTC Angul placement statistics 2020–2025. 1500+ students placed in TCS, Wipro, LTI Mindtree, Cognizant, Infosys, Capgemini, Deloitte, Accenture and more. Highest package ₹4.5 LPA. 95% placement rate."
+        keywords="CTC angul placement, creative techno college placement, placement record angul college, best placement college angul, TCS placement angul, Wipro placement angul"
+        canonical="/placement/statistics"
+      />
       <style>{css}</style>
       <div className="ps-page">
 

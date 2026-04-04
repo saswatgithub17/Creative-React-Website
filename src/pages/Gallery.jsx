@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import SEO from '../components/SEO';
 
 /* ─── Data ─── */
 const CATEGORIES = [
@@ -62,6 +63,12 @@ export default function Gallery() {
 
     return (
         <>
+            <SEO
+                title="Campus Gallery – CTC Angul | Campus Life, Events & Achievements"
+                description="Explore the vibrant campus life at Creative Techno College, Angul through our photo gallery. Events, sports, cultural programs, workshops, alumni meets and more."
+                keywords="CTC angul gallery, creative techno college campus, college life angul, CTC events photos"
+                canonical="/gallery"
+            />
             {/* ══ HERO ══ */}
             <div className="gl-hero">
                 <div className="gl-hero-glow" />
