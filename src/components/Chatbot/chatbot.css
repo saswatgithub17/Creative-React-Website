@@ -1,0 +1,693 @@
+/* ============================================================
+   chatbot.css — CTC Chatbot Claymorphism + Skeuomorphism UI
+   ============================================================ */
+
+/* ── Design Tokens ─────────────────────────────────────── */
+:root {
+  --clay-bg: #f0ebe0;
+  --clay-surface: #faf6ee;
+  --clay-navy: #0c2340;
+  --clay-navy-light: #1a3a5c;
+  --clay-navy-dark: #071628;
+  --clay-gold: #c8961c;
+  --clay-gold-light: #e8b830;
+  --clay-cream: #fdf9f2;
+  --clay-radius: 26px;
+  --clay-radius-sm: 18px;
+  --clay-radius-xs: 12px;
+  --clay-border: #d4c9b0;
+
+  /* Claymorphism shadow stack — creates 3D puffiness */
+  --clay-shadow-panel:
+    8px 8px 0px #c0b8a8,
+    0 16px 40px rgba(12, 35, 64, 0.18),
+    0 4px 12px rgba(12, 35, 64, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.7);
+
+  --clay-shadow-bot-bubble:
+    4px 4px 0px #c8c0b0,
+    0 6px 18px rgba(12, 35, 64, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  /* Skeuomorphic inset — recessed surfaces */
+  --sku-inset:
+    inset 0 3px 8px rgba(0,0,0,0.18),
+    inset 0 1px 3px rgba(0,0,0,0.10);
+
+  /* Skeuomorphic emboss — raised surfaces */
+  --sku-emboss:
+    0 2px 0 rgba(255,255,255,0.55),
+    0 -1px 0 rgba(0,0,0,0.18);
+
+  /* FAB shadows */
+  --clay-shadow-fab:
+    5px 5px 0px #9a9080,
+    0 8px 24px rgba(12,35,64,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  --clay-shadow-fab-pressed:
+    2px 2px 0px #9a9080,
+    0 3px 10px rgba(12,35,64,0.20);
+}
+
+/* ── Floating Action Button ─────────────────────────────── */
+.ctc-chatbot-fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a3a5c 0%, #0c2340 60%, #071628 100%);
+  border: 3px solid #c8961c;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--clay-shadow-fab);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  outline: none;
+  font-size: 26px;
+  /* Skeuomorphic ring */
+  outline: 3px solid rgba(200, 150, 28, 0.18);
+  outline-offset: 4px;
+}
+
+.ctc-chatbot-fab:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    6px 7px 0px #9a9080,
+    0 12px 32px rgba(12,35,64,0.30),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.ctc-chatbot-fab:active {
+  transform: translateY(2px);
+  box-shadow: var(--clay-shadow-fab-pressed);
+}
+
+/* Notification pulse dot */
+.ctc-fab-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #e85530;
+  border-radius: 50%;
+  border: 2px solid #fdf9f2;
+  box-shadow: 0 0 0 0 rgba(232, 85, 48, 0.6);
+  animation: ctc-fab-pulse 2s infinite;
+}
+
+@keyframes ctc-fab-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(232, 85, 48, 0.6); }
+  60%  { box-shadow: 0 0 0 8px rgba(232, 85, 48, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(232, 85, 48, 0);   }
+}
+
+/* FAB icon transition */
+.ctc-fab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #fdf9f2;
+  width: 100%;
+  height: 100%;
+}
+
+.ctc-fab-icon.open {
+  transform: rotate(45deg) scale(0.85);
+}
+
+.fab-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.ctc-msg-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white; /* optional */
+}
+
+.ctc-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Chat Window Panel ──────────────────────────────────── */
+.ctc-chat-window {
+  position: fixed;
+  bottom: 108px;
+  right: 30px;
+  z-index: 9998;
+  width: 370px;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--clay-radius);
+  background: var(--clay-surface);
+  box-shadow: var(--clay-shadow-panel);
+  border: 2px solid var(--clay-border);
+  overflow: hidden;
+
+  /* Spring slide-up animation */
+  transform-origin: bottom right;
+  animation: ctc-window-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.ctc-chat-window.closing {
+  animation: ctc-window-out 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes ctc-window-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ctc-window-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.75) translateY(20px);
+  }
+}
+
+/* ── Chat Header ────────────────────────────────────────── */
+.ctc-chat-header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #0c2340 50%, #071628 100%);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Skeuomorphic emboss effect on header */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -2px 6px rgba(0,0,0,0.30),
+    0 2px 6px rgba(0,0,0,0.25);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Subtle texture overlay on header */
+.ctc-chat-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.015) 0px,
+    rgba(255,255,255,0.015) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+.ctc-chat-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1e4a6e, #0c2340);
+  border: 3px solid var(--clay-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  /* Claymorphism clay avatar shadow */
+  box-shadow:
+    3px 3px 0px rgba(0,0,0,0.35),
+    0 4px 10px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.ctc-chat-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ctc-chat-header-name {
+  color: #fdf9f2;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.ctc-chat-header-status {
+  color: var(--clay-gold-light);
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.ctc-status-dot {
+  width: 7px;
+  height: 7px;
+  background: #4cd964;
+  border-radius: 50%;
+  animation: ctc-status-blink 2.5s ease-in-out infinite;
+  box-shadow: 0 0 4px #4cd964;
+}
+
+@keyframes ctc-status-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.ctc-chat-header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.ctc-header-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  /* Skeuomorphic raised button */
+  background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+  color: rgba(255,255,255,0.85);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    var(--sku-emboss);
+}
+
+.ctc-header-btn:hover {
+  background: linear-gradient(145deg, rgba(255,255,255,0.25), rgba(255,255,255,0.12));
+  color: #fff;
+}
+
+.ctc-header-btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.3),
+    inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ── Messages Container ─────────────────────────────────── */
+.ctc-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+  background: var(--clay-bg);
+  /* Skeuomorphic inset — looks like a recessed tray */
+  box-shadow: var(--sku-inset);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.ctc-messages-container::-webkit-scrollbar {
+  width: 5px;
+}
+.ctc-messages-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ctc-messages-container::-webkit-scrollbar-thumb {
+  background: rgba(12,35,64,0.2);
+  border-radius: 10px;
+}
+
+/* ── Message Bubbles ────────────────────────────────────── */
+.ctc-message {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  animation: ctc-msg-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 88%;
+}
+
+@keyframes ctc-msg-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+.ctc-message.bot {
+  align-self: flex-start;
+}
+
+.ctc-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+/* Small bot avatar in messages */
+.ctc-msg-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a3a5c, #0c2340);
+  border: 2px solid var(--clay-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  /* Clay avatar */
+  box-shadow:
+    2px 2px 0px #9a9080,
+    0 3px 8px rgba(12,35,64,0.15);
+}
+
+/* Bot bubble — Claymorphism style */
+.ctc-msg-bubble {
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-sm) var(--clay-radius-sm) var(--clay-radius-sm) 6px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #1a1a2e;
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: relative;
+}
+
+.ctc-message.bot .ctc-msg-bubble {
+  background: var(--clay-cream);
+  /* Claymorphism bot bubble */
+  box-shadow: var(--clay-shadow-bot-bubble);
+  border: 1.5px solid rgba(200,190,170,0.7);
+}
+
+/* User bubble — Skeuomorphic debossed style */
+.ctc-message.user .ctc-msg-bubble {
+  background: linear-gradient(145deg, #1a3a5c, #0c2340);
+  color: #fdf9f2;
+  border-radius: var(--clay-radius-sm) var(--clay-radius-sm) 6px var(--clay-radius-sm);
+  border: 1.5px solid rgba(200,150,28,0.4);
+  /* Debossed (pressed-in skeuomorphic) */
+  box-shadow:
+    inset 2px 2px 5px rgba(0,0,0,0.3),
+    inset 0 1px 2px rgba(0,0,0,0.15),
+    0 2px 6px rgba(12,35,64,0.20);
+}
+
+/* Bold & emphasis in bot messages */
+.ctc-msg-bubble strong {
+  font-weight: 700;
+  color: var(--clay-navy);
+}
+
+.ctc-message.user .ctc-msg-bubble strong {
+  color: var(--clay-gold-light);
+}
+
+/* Message links */
+.ctc-msg-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ctc-msg-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  text-decoration: none;
+  color: var(--clay-navy);
+  background: linear-gradient(145deg, #e8d9a0, #d4be7a);
+  border: 1.5px solid rgba(200,150,28,0.5);
+  /* Small clay pill */
+  box-shadow:
+    2px 2px 0px #b8a068,
+    0 3px 8px rgba(200,150,28,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.ctc-msg-link:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    3px 3px 0px #b8a068,
+    0 5px 12px rgba(200,150,28,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  color: var(--clay-navy-dark);
+}
+
+.ctc-msg-link:active {
+  transform: translateY(1px);
+  box-shadow:
+    1px 1px 0px #b8a068,
+    0 1px 4px rgba(200,150,28,0.15);
+}
+
+/* Timestamp */
+.ctc-msg-time {
+  font-size: 0.65rem;
+  color: rgba(26,26,46,0.4);
+  margin-top: 3px;
+  padding: 0 4px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.ctc-message.user .ctc-msg-time {
+  text-align: right;
+}
+
+/* ── Typing Indicator ───────────────────────────────────── */
+.ctc-typing-indicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  align-self: flex-start;
+  animation: ctc-msg-in 0.3s ease;
+}
+
+.ctc-typing-bubble {
+  background: var(--clay-cream);
+  border-radius: var(--clay-radius-sm) var(--clay-radius-sm) var(--clay-radius-sm) 6px;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(200,190,170,0.7);
+  box-shadow: var(--clay-shadow-bot-bubble);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ctc-typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clay-navy-light);
+  /* Individual clay dot shadow */
+  box-shadow:
+    1px 1px 0px #9a9080,
+    0 2px 5px rgba(12,35,64,0.15);
+  animation: ctc-dot-bounce 1.2s ease-in-out infinite;
+}
+
+.ctc-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.ctc-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes ctc-dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
+  30%            { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ── Quick Replies ──────────────────────────────────────── */
+.ctc-quick-replies {
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  background: var(--clay-bg);
+  border-top: 1.5px solid rgba(212,201,176,0.6);
+  flex-shrink: 0;
+}
+
+.ctc-quick-reply-btn {
+  padding: 6px 13px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  cursor: pointer;
+  border: 1.5px solid rgba(12,35,64,0.25);
+  background: linear-gradient(145deg, var(--clay-cream) 0%, #ede5d8 100%);
+  color: var(--clay-navy);
+  /* 3D clay chip effect */
+  box-shadow:
+    3px 3px 0px #c0b8a8,
+    0 4px 12px rgba(12,35,64,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.ctc-quick-reply-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #ffffff 0%, var(--clay-cream) 100%);
+  box-shadow:
+    4px 5px 0px #c0b8a8,
+    0 7px 18px rgba(12,35,64,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  border-color: rgba(12,35,64,0.35);
+}
+
+.ctc-quick-reply-btn:active {
+  transform: translateY(1px);
+  box-shadow:
+    1px 1px 0px #c0b8a8,
+    0 2px 6px rgba(12,35,64,0.08),
+    var(--sku-inset);
+}
+
+/* ── Input Area ─────────────────────────────────────────── */
+.ctc-input-area {
+  padding: 12px 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--clay-surface);
+  border-top: 2px solid var(--clay-border);
+  /* Skeuomorphic raised shelf */
+  box-shadow:
+    inset 0 2px 4px rgba(0,0,0,0.06),
+    0 -1px 0 rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+
+/* Inset text input — carved-in look */
+.ctc-chat-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--clay-radius-xs);
+  font-size: 0.84rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: var(--clay-navy);
+  background: var(--clay-bg);
+  border: 1.5px solid rgba(180,170,155,0.8);
+  outline: none;
+  resize: none;
+  /* Skeuomorphic inset (recessed slot) */
+  box-shadow: var(--sku-inset);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  line-height: 1.4;
+}
+
+.ctc-chat-input::placeholder {
+  color: rgba(12,35,64,0.35);
+}
+
+.ctc-chat-input:focus {
+  border-color: rgba(12,35,64,0.45);
+  box-shadow:
+    inset 0 3px 8px rgba(0,0,0,0.18),
+    inset 0 1px 3px rgba(0,0,0,0.10),
+    0 0 0 3px rgba(200,150,28,0.12);
+}
+
+/* Skeuomorphic send button — raised, depresses on click */
+.ctc-send-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--clay-radius-xs);
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(145deg, #1e4a6e 0%, #0c2340 60%, #071628 100%);
+  color: #fdf9f2;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Skeuomorphic raised button */
+  box-shadow:
+    3px 3px 0px #07111e,
+    0 5px 14px rgba(12,35,64,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    var(--sku-emboss);
+  transition: all 0.15s ease;
+  border: 1.5px solid rgba(200,150,28,0.35);
+}
+
+.ctc-send-btn:hover {
+  background: linear-gradient(145deg, #234f76 0%, #0f2a48 60%, #071628 100%);
+  transform: translateY(-1px);
+  box-shadow:
+    4px 4px 0px #07111e,
+    0 8px 20px rgba(12,35,64,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.ctc-send-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    1px 1px 0px #07111e,
+    0 2px 6px rgba(12,35,64,0.2),
+    var(--sku-inset);
+}
+
+.ctc-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Responsive — Mobile ────────────────────────────────── */
+@media (max-width: 480px) {
+  .ctc-chat-window {
+    right: 12px;
+    bottom: 100px;
+    width: calc(100vw - 24px);
+    max-height: 70vh;
+  }
+
+  .ctc-chatbot-fab {
+    bottom: 20px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+  }
+}
+
+/* ── Markdown-style bold in messages ────────────────────── */
+.ctc-msg-text b,
+.ctc-msg-text strong {
+  font-weight: 700;
+}

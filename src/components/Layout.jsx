@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MarqueeBar from './MarqueeBar';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Chatbot from './Chatbot/Chatbot';
 
 export default function Layout({ children }) {
     const [showTop, setShowTop] = useState(false);
@@ -59,6 +60,9 @@ export default function Layout({ children }) {
             >
                 <i className="fa-solid fa-chevron-up"></i>
             </button>
+
+            {/* CTC AI Chatbot — global across all pages */}
+            <Chatbot />
         </>
     );
 }
