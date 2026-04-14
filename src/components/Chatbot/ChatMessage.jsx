@@ -31,7 +31,7 @@ export default function ChatMessage({ message, onQuickReply }) {
       {isBot && (
         <div className="ctc-msg-avatar" role="img" aria-label="CTC Bot">
           <img
-            src="/images/chatbot/technocrat.png"
+            src={`${import.meta.env.BASE_URL}images/chatbot/technocrat.png`}
             alt="CTC Bot"
             className="ctc-avatar-img"
           />

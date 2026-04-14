@@ -123,21 +123,10 @@
 }
 
 .fab-img {
-  width: 28px;
-  height: 28px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   display: block;
-}
-
-.ctc-msg-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white; /* optional */
 }
 
 .ctc-avatar-img {
@@ -373,6 +362,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  overflow: hidden;
   background: linear-gradient(145deg, #1a3a5c, #0c2340);
   border: 2px solid var(--clay-gold);
   display: flex;

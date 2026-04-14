@@ -11,7 +11,7 @@ function TypingIndicator() {
     <div className="ctc-typing-indicator">
       <div className="ctc-msg-avatar" role="img" aria-label="CTC Bot">
         <img
-          src="/images/chatbot/technocrat.png"
+          src={`${import.meta.env.BASE_URL}images/chatbot/technocrat.png`}
           alt="CTC Bot"
           className="ctc-avatar-img"
         />
@@ -106,7 +106,7 @@ export default function ChatbotWindow({ messages, onSendMessage, onClose, onMini
       <div className="ctc-chat-header">
         <div className="ctc-chat-avatar" role="img" aria-label="CTC Bot Avatar">
           <img
-            src="/images/chatbot/technocrat.png"
+            src={`${import.meta.env.BASE_URL}images/chatbot/technocrat.png`}
             alt="CTC Bot"
             className="ctc-avatar-img"
           />

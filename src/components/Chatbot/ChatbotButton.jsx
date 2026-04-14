@@ -23,7 +23,7 @@ export default function ChatbotButton({ isOpen, hasUnread, onClick }) {
       >
         {isOpen ? '✕' : (
           <img
-            src="/images/chatbot/technocrat.png"
+            src={`${import.meta.env.BASE_URL}images/chatbot/technocrat.png`}
             alt="Technocrat Logo"
             className="fab-img"
           />

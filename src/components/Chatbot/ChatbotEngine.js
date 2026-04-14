@@ -74,7 +74,7 @@ const KNOWLEDGE_BASE = [
     id: 'admission',
     keywords: ['admission', 'admissions', 'apply', 'join', 'enroll', 'enroll', 'how to apply', 'application', 'seat', 'intake'],
     response: {
-      text: "🎓 **Admissions at CTC — 2024-25**\n\n📋 **Eligibility:** 10+2 / HSC pass with Physics, Chemistry, Maths (PCM)\n📅 **Process:** Apply online → Submit documents → Merit list → Fee payment\n📑 **Documents:** Mark sheets, Transfer Certificate, Caste Certificate (if applicable), Passport photos\n\n✅ Admission is merit-based through OJEE / Direct admission.",
+      text: "🎓 **Admissions at CTC — 2024-25**\n\n📋 **Eligibility:** 10+2 / HSC pass with Physics, Chemistry, Maths (PCM)\n📅 **Process:** Apply online → Submit documents → Merit list → Fee payment\n📑 **Documents:** Mark sheets, Transfer Certificate, Caste Certificate (if applicable), Passport photos\n\n",
       quickReplies: ['Apply Now', 'Fee Structure', 'Courses', 'Contact Us'],
       links: [
         { label: 'Admission Details', path: '/admission' },
@@ -97,16 +97,68 @@ const KNOWLEDGE_BASE = [
   },
 
   // ── COURSES ───────────────────────────────────────────────
+  // ── COURSES ───────────────────────────────────────────────
   {
     id: 'courses',
-    keywords: ['course', 'courses', 'program', 'programs', 'branch', 'branches', 'stream', 'degree', 'b.e', 'be', 'b.tech', 'btech', 'engineering', 'department'],
+    keywords: [
+      'course', 'courses', 'program', 'programs', 'stream', 'degree',
+      'bba', 'bca',
+      'bsc cs', 'bsc-cs', 'b.sc cs', 'bsc computer science', 'b.sc computer science', 'computer science',
+      'bsc ds', 'bsc-ds', 'b.sc ds', 'bsc data science', 'b.sc data science', 'data science'
+    ],
     response: {
-      text: "📚 **Courses Offered at CTC**\n\n🎓 **Regular Degree Programs (B.E.):**\n• Computer Science & Engineering\n• Electronics & Telecommunication Engg.\n• Electrical Engineering\n• Mechanical Engineering\n• Civil Engineering\n\n📘 **Value-Added Courses** — Industry-oriented add-on certifications\n\n🚀 **Enhancement Programs** — Skill & personality development",
-      quickReplies: ['Value-Added Courses', 'Enhancement Programs', 'Admissions'],
+      text: "📚 **Courses Offered at CTC**\n\n🎓 **UG Programs:**\n• **BBA**\n• **BCA**\n• **B.Sc Computer Science (B.Sc CS)**\n• **B.Sc Data Science (B.Sc DS)**\n\nThese courses are designed to provide strong academic knowledge and career-oriented skills.",
+      quickReplies: ['BBA', 'BCA', 'B.Sc CS', 'B.Sc DS', 'Admissions'],
       links: [
-        { label: 'Regular Courses', path: '/academics/regular' },
-        { label: 'Value-Added Courses', path: '/academics/value-added' },
-        { label: 'Enhancement Programs', path: '/academics/enhancement' },
+        { label: 'Courses', path: '/academics/regular' },
+      ],
+    },
+  },
+  {
+    id: 'bba',
+    keywords: ['bba', 'bachelor of business administration', 'management course', 'business administration'],
+    response: {
+      text: "📘 **BBA at CTC**\n\nThe **BBA** program helps students build knowledge in management, business, communication, and leadership skills.\n\nIt is a good choice for students interested in business, administration, and corporate careers.",
+      quickReplies: ['Admissions', 'Fee Structure', 'Courses'],
+      links: [
+        { label: 'Courses', path: '/academics/regular' },
+        { label: 'Admission Details', path: '/admission' },
+      ],
+    },
+  },
+  {
+    id: 'bca',
+    keywords: ['bca', 'bachelor of computer applications', 'computer application'],
+    response: {
+      text: "💻 **BCA at CTC**\n\nThe **BCA** program focuses on computer applications, programming, software development, and IT fundamentals.\n\nIt is ideal for students who want to build a career in the software and IT field.",
+      quickReplies: ['Admissions', 'Fee Structure', 'Courses'],
+      links: [
+        { label: 'Courses', path: '/academics/regular' },
+        { label: 'Admission Details', path: '/admission' },
+      ],
+    },
+  },
+  {
+    id: 'bsc_cs',
+    keywords: ['bsc cs', 'bsc-cs', 'b.sc cs', 'bsc computer science', 'b.sc computer science', 'computer science course'],
+    response: {
+      text: "🖥️ **B.Sc Computer Science at CTC**\n\nThe **B.Sc CS** program covers computer fundamentals, programming, databases, software concepts, and problem-solving skills.\n\nIt is a strong option for students interested in computing and technology.",
+      quickReplies: ['Admissions', 'Fee Structure', 'Courses'],
+      links: [
+        { label: 'Courses', path: '/academics/regular' },
+        { label: 'Admission Details', path: '/admission' },
+      ],
+    },
+  },
+  {
+    id: 'bsc_ds',
+    keywords: ['bsc ds', 'bsc-ds', 'b.sc ds', 'bsc data science', 'b.sc data science', 'data science course'],
+    response: {
+      text: "📊 **B.Sc Data Science at CTC**\n\nThe **B.Sc DS** program introduces students to data analysis, statistics, computing, and modern data-driven technologies.\n\nIt is suitable for students interested in analytics, data handling, and emerging tech careers.",
+      quickReplies: ['Admissions', 'Fee Structure', 'Courses'],
+      links: [
+        { label: 'Courses', path: '/academics/regular' },
+        { label: 'Admission Details', path: '/admission' },
       ],
     },
   },
