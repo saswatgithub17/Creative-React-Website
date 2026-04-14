@@ -15,6 +15,7 @@ import EnhancementPrograms from './pages/academics/EnhancementPrograms';
 import DevelopmentPrograms from './pages/placement/DevelopmentPrograms';
 import PlacementBrochure from './pages/placement/PlacementBrochure';
 import PlacementStatistics from './pages/placement/PlacementStatistics';
+import Mission40 from './pages/placement/Mission40';
 import Gymkhana from './pages/Gymkhana';
 import Gallery from './pages/Gallery';
 import Contacts from './pages/Contacts';
@@ -69,6 +70,7 @@ export default function App() {
                     <Route path="/placement/programs" element={<DevelopmentPrograms />} />
                     <Route path="/placement/statistics" element={<PlacementStatistics />} />
                     <Route path="/placement/brochure" element={<PlacementBrochure />} />
+                    <Route path="/placement/mission40" element={<Mission40 />} />
 
                     {/* Gymkhana */}
                     <Route path="/gymkhana" element={<Gymkhana />} />

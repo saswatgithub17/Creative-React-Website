@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function useReveal() {
   useEffect(() => {
@@ -73,10 +74,10 @@ const MODULES = [
 ];
 
 const PROGRAMS = [
-  { title: 'JOB-A-THON 2022', icon: 'fa-trophy', sub: 'First edition — campus hiring drive' },
-  { title: 'JOB-A-THON 2023', icon: 'fa-medal', sub: 'Expanded to 15+ companies' },
-  { title: 'JOB-A-THON 2024', icon: 'fa-star', sub: 'Record placements — 60+ students' },
-  { title: 'MISSION — 40', icon: 'fa-bullseye', sub: '2025 drive — 40 MNC targets' },
+  { title: 'JOB-A-THON 2022', icon: 'fa-trophy', sub: 'First edition — campus hiring drive', link: null },
+  { title: 'JOB-A-THON 2023', icon: 'fa-medal', sub: 'Expanded to 15+ companies', link: null },
+  { title: 'JOB-A-THON 2024', icon: 'fa-star', sub: 'Record placements — 60+ students', link: null },
+  { title: 'MISSION — 40', icon: 'fa-bullseye', sub: '2025 drive — 40 MNC targets', link: '/placement/mission40' },
 ];
 
 const INTERNSHIP_GOALS = [
@@ -164,6 +165,12 @@ function ActivityCard({ item, idx }) {
 /* ─── Program card ─── */
 function ProgramCard({ p, idx }) {
   const [h, setH] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (p.link) navigate(p.link);
+  };
+
   return (
     <div
       className="rv"
@@ -172,7 +179,7 @@ function ProgramCard({ p, idx }) {
         border: '2px solid',
         borderColor: h ? '#0c2340' : 'rgba(12,35,64,0.15)',
         borderRadius: 22, padding: '36px 28px', textAlign: 'center',
-        cursor: 'pointer',
+        cursor: p.link ? 'pointer' : 'default',
         boxShadow: h ? '0 20px 60px rgba(12,35,64,0.35)' : '0 4px 20px rgba(12,35,64,0.08)',
         transform: h ? 'translateY(-10px) scale(1.03)' : 'none',
         transition: 'all 0.35s cubic-bezier(0.4,0,0.2,1)',
@@ -180,6 +187,7 @@ function ProgramCard({ p, idx }) {
         position: 'relative', overflow: 'hidden',
       }}
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      onClick={handleClick}
     >
       {h && (
         <div style={{
@@ -187,6 +195,19 @@ function ProgramCard({ p, idx }) {
           background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
+      )}
+      {/* "New" badge for Mission 40 */}
+      {p.link && (
+        <div style={{
+          position: 'absolute', top: 14, right: 14,
+          background: h ? 'rgba(255,204,0,0.25)' : 'rgba(12,35,64,0.07)',
+          border: '1px solid',
+          borderColor: h ? 'rgba(255,204,0,0.45)' : 'rgba(12,35,64,0.15)',
+          color: h ? '#ffcc00' : '#0c2340',
+          borderRadius: 20, padding: '3px 10px',
+          fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '0.62rem', fontWeight: 800,
+          letterSpacing: '1px', textTransform: 'uppercase', transition: 'all 0.3s',
+        }}>View Details</div>
       )}
       <div style={{
         width: 64, height: 64, borderRadius: '50%', margin: '0 auto 16px',
@@ -202,6 +223,17 @@ function ProgramCard({ p, idx }) {
         color: h ? '#ffcc00' : '#0c2340', marginBottom: 8, letterSpacing: '-0.3px',
       }}>{p.title}</div>
       <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '0.76rem', color: h ? 'rgba(255,255,255,0.55)' : '#64748b', fontWeight: 500 }}>{p.sub}</div>
+      {p.link && (
+        <div style={{
+          marginTop: 16,
+          display: 'inline-flex', alignItems: 'center', gap: 6,
+          fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '0.75rem', fontWeight: 800,
+          color: h ? '#ffcc00' : '#0c2340',
+          transition: 'all 0.3s',
+        }}>
+          Explore Program <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.7rem', transform: h ? 'translateX(4px)' : 'none', transition: 'transform 0.25s' }} />
+        </div>
+      )}
     </div>
   );
 }
