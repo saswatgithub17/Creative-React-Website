@@ -22,8 +22,8 @@ const FEST_DATA = {
       { name: 'Blind Person Assistant', members: 'Priyadarshan, Satyabrata Ojha, Satyabrata Sahu, Sangita, Ananya, Anish, Subham', year: '2023' },
       { name: 'LMS in Django', members: 'Ashutosh, Chandra, Suryakanta, SK Akhil, Subham, Satyadev, Chandan, Anata, Susree, Swarnalaxmi, Rudra, Debasis, Nikhil, Somya Ranjan, Armstrong, Sneha, Priti Prangya, Sandhyarani, Smrutisikha, Sangita, Ananya, Anish, Subham', year: '2023' },
     ],
-    gallery: [26, 27, 28, 29, 30, 31, 33, 34, 36, 35].map(n => `/images/TECHNOCRAT/techfest1.0/IMG-20251002-WA00${n}.jpg`),
-    galleryRest: [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66].map(n => `/images/TECHNOCRAT/techfest1.0/IMG-20251002-WA00${n}.jpg`),
+    gallery: [26, 27, 28, 29, 30, 31, 33, 34, 36, 35].map(n => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest1.0/IMG-20251002-WA00${n}.jpg`),
+    galleryRest: [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66].map(n => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest1.0/IMG-20251002-WA00${n}.jpg`),
   },
   2: {
     version: '2.0', year: '2024', theme: 'Smart Systems & Automation',
@@ -55,9 +55,9 @@ const FEST_DATA = {
       { name: 'Drone For Delivery', members: 'Abhijit, Asutosh, Suryakant', year: '2024' },
       { name: 'Smart Restaurant Management System', members: 'Anish, Sandhya, Sangita', year: '2024' },
     ],
-    gallery: [12, 16, 18, 21, 22, 25, 26, 29, 30, 33].map(n => `/images/TECHNOCRAT/techfest 2.0/IMG-20241120-WA00${n}.jpg`),
-    galleryRest: [34, 37, 38, 40, 42, 45, 46, 49, 53, 54, 57, 58, 61, 62].map(n => `/images/TECHNOCRAT/techfest 2.0/IMG-20241120-WA00${n}.jpg`)
-      .concat([25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42].map(n => `/images/TECHNOCRAT/techfest 2.0/img${n}.jpg`)),
+    gallery: [12, 16, 18, 21, 22, 25, 26, 29, 30, 33].map(n => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest 2.0/IMG-20241120-WA00${n}.jpg`),
+    galleryRest: [34, 37, 38, 40, 42, 45, 46, 49, 53, 54, 57, 58, 61, 62].map(n => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest 2.0/IMG-20241120-WA00${n}.jpg`)
+      .concat([25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42].map(n => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest 2.0/img${n}.jpg`)),
   },
   3: {
     version: '3.0', year: '2025', theme: 'Viksit Bharat — Multi-Institution',
@@ -80,8 +80,8 @@ const FEST_DATA = {
       { name: 'E-Jeevan Dan', members: 'Bhagyalaxmi, Rimjhim, Selina, kajal, Bidusmita, Elin, Ipsita, Elina', year: '2025' },
       { name: 'Smart Helmet', members: 'Yash, Tanmay, Subham', year: '2025' },
     ],
-    gallery: Array.from({ length: 10 }, (_, i) => `/images/TECHNOCRAT/techfest 3.0/${i + 1}.jpg`),
-    galleryRest: Array.from({ length: 37 }, (_, i) => `/images/TECHNOCRAT/techfest 3.0/${i + 11}.jpg`),
+    gallery: Array.from({ length: 10 }, (_, i) => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest 3.0/${i + 1}.jpg`),
+    galleryRest: Array.from({ length: 37 }, (_, i) => `/CTC%20NEW%20REACT%20WEBSITE/images/TECHNOCRAT/techfest 3.0/${i + 11}.jpg`),
   },
 };
 

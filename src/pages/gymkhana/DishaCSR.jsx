@@ -74,7 +74,7 @@ const MAGAZINES = [
 const GALLERY_FILES = [
   ...Array.from({ length: 3 }, (_, i) => `/CTC%20NEW%20REACT%20WEBSITE/images/Disha & CSR/im${[1, 2, 3][i]}.jpg`),
   '/CTC%20NEW%20REACT%20WEBSITE/images/Disha & CSR/im5.jpg',
-  ...Array.from({ length: 24 }, (_, i) => `/images/Disha & CSR/photo${i + 1}.jpg`),
+  ...Array.from({ length: 24 }, (_, i) => `/CTC%20NEW%20REACT%20WEBSITE/images/Disha & CSR/photo${i + 1}.jpg`),
 ];
 
 const MASONRY_SIZES = ['normal', 'tall', 'wide', 'normal', 'normal', 'wide', 'tall', 'normal'];
