@@ -416,7 +416,7 @@ export default function Admission() {
                                 City Office: Tamrit Colony, Angul
                             </p>
                         </div>
-                        <a href="/pdfs/brochure.pdf" download className="btn-primary" style={{ marginTop: '28px', display: 'inline-flex' }}>
+                        <a href="/CTC NEW REACT WEBSITE/images/Admission/college brochure.pdf" download className="btn-primary" style={{ marginTop: '28px', display: 'inline-flex' }}>
                             <i className="fa-solid fa-file-arrow-down"></i> Download Brochure
                         </a>
                     </div>
