@@ -36,10 +36,12 @@ try {
     $statsStmt = $pdo->query("
         SELECT
             COUNT(*) AS total,
-            SUM(course = 'BBA')   AS bba,
-            SUM(course = 'BCA')   AS bca,
+            SUM(course = 'BBA')        AS bba,
+            SUM(course = 'BCA')        AS bca,
             SUM(course = 'B.Sc CS(H)') AS bsc_cs,
             SUM(course = 'B.Sc DS')    AS bsc_ds,
+            SUM(course = 'MBA')        AS mba,
+            SUM(course = 'MCA')        AS mca,
             SUM(status = 'Pending')    AS pending,
             SUM(status = 'Contacted')  AS contacted,
             SUM(status = 'Admitted')   AS admitted,

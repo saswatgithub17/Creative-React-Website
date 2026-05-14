@@ -191,6 +191,8 @@
   .course-BCA{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2)}
   .course-CS{background:rgba(123,97,255,0.12);color:#9f7aea;border:1px solid rgba(123,97,255,0.25)}
   .course-DS{background:rgba(229,62,62,0.1);color:#fc8181;border:1px solid rgba(229,62,62,0.2)}
+  .course-MBA{background:rgba(236,72,153,0.12);color:#f472b6;border:1px solid rgba(236,72,153,0.3)}
+  .course-MCA{background:rgba(6,182,212,0.12);color:#22d3ee;border:1px solid rgba(6,182,212,0.3)}
 
   /* Status dropdown */
   .status-select{
@@ -310,6 +312,14 @@
         <div class="stat-icon" style="background:linear-gradient(135deg,#822727,#fc8181)"><i class="fa-solid fa-chart-bar"></i></div>
         <div class="stat-info"><div class="stat-val" id="s-ds">—</div><div class="stat-label">B.Sc DS</div></div>
       </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#831843,#ec4899)"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="stat-info"><div class="stat-val" id="s-mba">—</div><div class="stat-label">MBA</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#164e63,#06b6d4)"><i class="fa-solid fa-code"></i></div>
+        <div class="stat-info"><div class="stat-val" id="s-mca">—</div><div class="stat-label">MCA</div></div>
+      </div>
     </div>
 
     <!-- Filters -->
@@ -324,6 +334,8 @@
         <option value="BCA">BCA</option>
         <option value="B.Sc CS(H)">B.Sc CS(H)</option>
         <option value="B.Sc DS">B.Sc DS</option>
+        <option value="MBA">MBA</option>
+        <option value="MCA">MCA</option>
       </select>
       <select class="filter-select" id="f-status" onchange="renderTable()">
         <option value="">All Status</option>
@@ -443,13 +455,15 @@ async function loadData() {
 
 // ── STATS ────────────────────────────────────────────────────
 function updateStats(s) {
-  document.getElementById('s-total').textContent   = s.total    || 0;
-  document.getElementById('s-pending').textContent = s.pending  || 0;
-  document.getElementById('s-admitted').textContent= s.admitted || 0;
-  document.getElementById('s-bba').textContent     = s.bba      || 0;
-  document.getElementById('s-bca').textContent     = s.bca      || 0;
-  document.getElementById('s-cs').textContent      = s.bsc_cs   || 0;
-  document.getElementById('s-ds').textContent      = s.bsc_ds   || 0;
+  document.getElementById('s-total').textContent    = s.total    || 0;
+  document.getElementById('s-pending').textContent  = s.pending  || 0;
+  document.getElementById('s-admitted').textContent = s.admitted || 0;
+  document.getElementById('s-bba').textContent      = s.bba      || 0;
+  document.getElementById('s-bca').textContent      = s.bca      || 0;
+  document.getElementById('s-cs').textContent       = s.bsc_cs   || 0;
+  document.getElementById('s-ds').textContent       = s.bsc_ds   || 0;
+  document.getElementById('s-mba').textContent      = s.mba      || 0;
+  document.getElementById('s-mca').textContent      = s.mca      || 0;
   document.getElementById('topbar-total').textContent = `${s.total || 0} Applications`;
 }
 
@@ -484,7 +498,9 @@ function renderTable() {
   tbody.innerHTML = rows.map(r => {
     const courseClass = r.course === 'BBA' ? 'course-BBA'
                       : r.course === 'BCA' ? 'course-BCA'
-                      : r.course?.includes('CS')  ? 'course-CS' : 'course-DS';
+                      : r.course === 'MBA' ? 'course-MBA'
+                      : r.course === 'MCA' ? 'course-MCA'
+                      : r.course?.includes('CS') ? 'course-CS' : 'course-DS';
     const date = r.submitted_at
       ? new Date(r.submitted_at).toLocaleDateString('en-IN', {day:'2-digit',month:'short',year:'2-digit'})
       : '—';

@@ -36,6 +36,7 @@ export default function Layout({ children }) {
                 <div className="header-logos">
                     <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/aicte.png" alt="AICTE" title="AICTE Approved" />
                     <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/utkal.png" alt="Utkal University" title="Utkal University Affiliated" />
+                    <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/bput.png" alt="BPUT" title="Creative Knowledge Foundation" />
                     <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/ckf.png" alt="CKF" title="Creative Knowledge Foundation" />
                 </div>
                 <div className="header-clubs">

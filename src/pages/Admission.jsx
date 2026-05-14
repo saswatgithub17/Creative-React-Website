@@ -115,6 +115,22 @@ const courses = [
         tags: ['Data Analytics', 'Statistics', 'ML', 'Tableau'],
         accent: '#ff6b6b',
     },
+    {
+        abbr: 'MBA', full: 'Master of Business Administration',
+        seats: 60, duration: '2 Years', fee: 'Contact Office',
+        icon: 'fa-solid fa-chart-line',
+        tags: ['Finance', 'Marketing', 'HR', 'Operations'],
+        accent: '#ec4899',
+        note: 'OJEE / CAT / MAT / ATMA 2026 Rank Required',
+    },
+    {
+        abbr: 'MCA', full: 'Master of Computer Applications',
+        seats: 60, duration: '2 Years', fee: 'Contact Office',
+        icon: 'fa-solid fa-code',
+        tags: ['Software Engg', 'Cloud', 'AI/ML', 'Cybersecurity'],
+        accent: '#06b6d4',
+        note: 'OJEE 2026 Rank Card Required',
+    },
 ];
 
 const steps = [
@@ -149,6 +165,8 @@ const rings = [
     { label: 'BCA', pct: 50, color: '#00d4ff', seats: 120, admitted: 60 },
     { label: 'B.Sc CS(H)', pct: 53, color: '#7b61ff', seats: 128, admitted: 68 },
     { label: 'B.Sc DS', pct: 83, color: '#ff6b6b', seats: 36, admitted: 30 },
+    { label: 'MBA', pct: 0, color: '#ec4899', seats: 60, admitted: 0 },
+    { label: 'MCA', pct: 0, color: '#06b6d4', seats: 60, admitted: 0 },
 ];
 
 /* yearly totals */
@@ -171,9 +189,9 @@ export default function Admission() {
     return (
         <>
             <SEO
-                title="Admission 2026-27 – BBA, BCA, B.Sc CS & Data Science | CTC Angul"
-                description="Apply for admission at Creative Techno College, Angul – top AICTE-approved college in Angul, Odisha. BBA (120 seats), BCA (120 seats), B.Sc CS (128 seats), B.Sc Data Science (30 seats). Eligibility: 10+2 with minimum 45%."
-                keywords="admission in angul college, CTC angul admission 2026, BCA admission angul, BBA admission angul, best college admission angul odisha, creative techno college admission"
+                title="Admission 2026-27 – BBA, BCA, B.Sc CS, Data Science, MBA & MCA | CTC Angul"
+                description="Apply for admission at Creative Techno College, Angul. UG: BBA (120 seats), BCA (120 seats), B.Sc CS (128 seats), B.Sc Data Science (30 seats). PG: MBA (60 seats), MCA (60 seats). AICTE approved."
+                keywords="admission in angul college, CTC angul admission 2026, BCA admission angul, BBA admission angul, MBA admission angul, MCA admission angul, best college admission angul odisha, creative techno college admission"
                 canonical="/admission"
             />
 
@@ -202,7 +220,7 @@ export default function Admission() {
                 {/* Quick Stats */}
                 <div className="adm2-hero-stats">
                     {[
-                        { icon: 'fa-solid fa-users', val: 398, suf: '+', label: 'Total Seats' },
+                        { icon: 'fa-solid fa-users', val: 518, suf: '+', label: 'Total Seats' },
                         { icon: 'fa-solid fa-graduation-cap', val: 1500, suf: '+', label: 'Alumni' },
                         { icon: 'fa-solid fa-trophy', val: 95, suf: '%', label: 'Placement Rate' },
                         { icon: 'fa-solid fa-calendar-days', val: 15, suf: '+', label: 'Years of Excellence' },
@@ -242,7 +260,12 @@ export default function Admission() {
                                     </div>
                                 </div>
                                 <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.4rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '4px' }}>{c.abbr}</h3>
-                                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: 1.5 }}>{c.full}</p>
+                                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px', lineHeight: 1.5 }}>{c.full}</p>
+                                {c.note && (
+                                    <p style={{ fontSize: '0.69rem', color: c.accent, fontWeight: 700, fontFamily: 'var(--font-head)', marginBottom: '10px', background: `${c.accent}12`, border: `1px solid ${c.accent}30`, borderRadius: '8px', padding: '4px 10px', display: 'inline-block' }}>
+                                        <i className="fa-solid fa-circle-info" style={{ marginRight: '5px' }}></i>{c.note}
+                                    </p>
+                                )}
                                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
                                     {c.tags.map((t, j) => (
                                         <span key={j} style={{ background: `${c.accent}16`, color: c.accent, border: `1px solid ${c.accent}30`, borderRadius: '10px', padding: '3px 10px', fontSize: '0.69rem', fontFamily: 'var(--font-head)', fontWeight: 600 }}>{t}</span>

@@ -276,6 +276,8 @@ export default function AdmissionApply() {
                                         { v: 'BCA', label: 'BCA', sub: 'Bachelor of Computer Applications', color: '#00d4ff' },
                                         { v: 'B.Sc CS(H)', label: 'B.Sc CS(H)', sub: 'Computer Science (Honours)', color: '#7b61ff' },
                                         { v: 'B.Sc DS', label: 'B.Sc DS', sub: 'Data Science', color: '#ff6b6b' },
+                                        { v: 'MBA', label: 'MBA', sub: 'Master of Business Administration', color: '#ec4899' },
+                                        { v: 'MCA', label: 'MCA', sub: 'Master of Computer Applications', color: '#06b6d4' },
                                     ].map(c => (
                                         <label key={c.v} className={`af-course-tile ${form.course === c.v ? 'sel' : ''}`} style={{ '--tc': c.color }}>
                                             <input type="radio" name="course" value={c.v} checked={form.course === c.v} onChange={() => { set('course', c.v); clrErr('course'); }} />
@@ -420,6 +422,8 @@ export default function AdmissionApply() {
                             { label: 'BCA', seats: 120, color: '#00d4ff' },
                             { label: 'B.Sc CS(H)', seats: 128, color: '#7b61ff' },
                             { label: 'B.Sc DS', seats: 30, color: '#ff6b6b' },
+                            { label: 'MBA', seats: 60, color: '#ec4899' },
+                            { label: 'MCA', seats: 60, color: '#06b6d4' },
                         ].map(c => (
                             <div key={c.label} className="af-seat-row">
                                 <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: c.color, display: 'inline-block', flexShrink: 0 }}></span>

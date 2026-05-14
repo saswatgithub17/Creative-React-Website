@@ -104,13 +104,15 @@ const KNOWLEDGE_BASE = [
       'course', 'courses', 'program', 'programs', 'stream', 'degree',
       'bba', 'bca',
       'bsc cs', 'bsc-cs', 'b.sc cs', 'bsc computer science', 'b.sc computer science', 'computer science',
-      'bsc ds', 'bsc-ds', 'b.sc ds', 'bsc data science', 'b.sc data science', 'data science'
+      'bsc ds', 'bsc-ds', 'b.sc ds', 'bsc data science', 'b.sc data science', 'data science',
+      'mba', 'master of business', 'mca', 'master of computer',
+      'ug courses', 'pg courses', 'undergraduate', 'postgraduate'
     ],
     response: {
-      text: "📚 **Courses Offered at CTC**\n\n🎓 **UG Programs:**\n• **BBA**\n• **BCA**\n• **B.Sc Computer Science (B.Sc CS)**\n• **B.Sc Data Science (B.Sc DS)**\n\nThese courses are designed to provide strong academic knowledge and career-oriented skills.",
-      quickReplies: ['BBA', 'BCA', 'B.Sc CS', 'B.Sc DS', 'Admissions'],
+      text: "📚 **Courses Offered at CTC**\n\n🎓 **UG Programs (4 Years):**\n• **BBA** — Bachelor of Business Administration\n• **BCA** — Bachelor of Computer Applications\n• **B.Sc Computer Science (B.Sc CS)**\n• **B.Sc Data Science (B.Sc DS)**\n\n🏆 **PG Programs (2 Years):**\n• **MBA** — Master of Business Administration\n• **MCA** — Master of Computer Applications\n\nAll programs are industry-aligned with 100% placement assistance.",
+      quickReplies: ['BBA', 'BCA', 'B.Sc CS', 'B.Sc DS', 'MBA', 'MCA'],
       links: [
-        { label: 'Courses', path: '/academics/regular' },
+        { label: 'All Courses', path: '/academics/regular' },
       ],
     },
   },
@@ -159,6 +161,30 @@ const KNOWLEDGE_BASE = [
       links: [
         { label: 'Courses', path: '/academics/regular' },
         { label: 'Admission Details', path: '/admission' },
+      ],
+    },
+  },
+  {
+    id: 'mba',
+    keywords: ['mba', 'master of business administration', 'master business', 'pg management', 'postgraduate management', 'mba admission', 'mba eligibility', 'ojee mba', 'cat', 'mat', 'atma'],
+    response: {
+      text: "🎓 **MBA at CTC — Master of Business Administration**\n\n📅 **Duration:** 2 Years · 4 Semesters\n\n✅ **Eligibility:**\nOJEE/CAT/MAT/ATMA-2026 Rank Card Holder. Passed any Bachelor's degree with at least 50% aggregate marks (45% for reserved category candidates).\n\n💼 **Career Paths:** Business Strategist, Marketing Manager, Finance Analyst, HR Director, Entrepreneur\n\nSpecialisations available in Finance, Marketing, HR & Operations Management.",
+      quickReplies: ['MCA', 'Admissions', 'Courses', 'Contact Us'],
+      links: [
+        { label: 'MBA Details', path: '/academics/regular' },
+        { label: 'Apply Now', path: '/admission/apply' },
+      ],
+    },
+  },
+  {
+    id: 'mca',
+    keywords: ['mca', 'master of computer applications', 'master computer', 'pg computer', 'postgraduate computer', 'mca admission', 'mca eligibility', 'ojee mca'],
+    response: {
+      text: "💻 **MCA at CTC — Master of Computer Applications**\n\n📅 **Duration:** 2 Years · 4 Semesters\n\n✅ **Eligibility:**\nOJEE 2026 Rank Card Mandatory. Passed any Bachelor's degree (B.E./B.Tech/BSC/B.Com/BA/BCA etc.) with Mathematics and at least 50% marks (45% for reserved category candidates).\n\n🚀 **Career Paths:** Software Architect, Senior Developer, IT Consultant, Project Manager, Research Scientist",
+      quickReplies: ['MBA', 'Admissions', 'Courses', 'Contact Us'],
+      links: [
+        { label: 'MCA Details', path: '/academics/regular' },
+        { label: 'Apply Now', path: '/admission/apply' },
       ],
     },
   },

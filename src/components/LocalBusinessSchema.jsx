@@ -14,7 +14,7 @@ export default function LocalBusinessSchema() {
                 "@id": "https://www.creativecollege.in/#organization",
                 "name": "Creative Techno College",
                 "alternateName": ["CTC Angul", "Creative College Angul", "CTC"],
-                "description": "Creative Techno College (CTC), Angul is an AICTE-approved, top professional and technical college in Angul, Odisha, affiliated to Utkal University. Established in 2010, CTC offers BBA, BCA, B.Sc Computer Science, and B.Sc Data Science programs with 100% placement assistance.",
+                "description": "Creative Techno College (CTC), Angul is an AICTE-approved, top professional and technical college in Angul, Odisha, affiliated to Utkal University. Established in 2010, CTC offers BBA, BCA, B.Sc Computer Science, B.Sc Data Science, MBA and MCA programs with 100% placement assistance.",
                 "url": "https://www.creativecollege.in",
                 "logo": "https://www.creativecollege.in/images/HOMEPAGE/LOGO FINAL.png",
                 "image": "https://www.creativecollege.in/images/HOMEPAGE/creative-campus.jpg",
@@ -84,7 +84,7 @@ export default function LocalBusinessSchema() {
                         "name": "What courses are offered at Creative Techno College, Angul?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "CTC Angul offers 4-year degree programs: BBA (Bachelor of Business Administration) with 120 seats, BCA (Bachelor of Computer Applications) with 120 seats, B.Sc Computer Science (Honours) with 128 seats, and B.Sc Data Science with 30 seats."
+                            "text": "CTC Angul offers UG programs: BBA (Bachelor of Business Administration) with 120 seats, BCA (Bachelor of Computer Applications) with 120 seats, B.Sc Computer Science (Honours) with 128 seats, and B.Sc Data Science with 30 seats. PG programs: MBA (Master of Business Administration) with 60 seats and MCA (Master of Computer Applications) with 60 seats."
                         }
                     },
                     {

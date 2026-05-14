@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 
-const COURSES = [
+const UG_COURSES = [
     {
         code: 'BBA',
         full: 'Bachelor of Business Administration',
@@ -97,6 +97,55 @@ const COURSES = [
     },
 ];
 
+const PG_COURSES = [
+    {
+        code: 'MCA',
+        full: 'Master of Computer Applications',
+        tagline: 'Innovate. Engineer. Lead.',
+        icon: 'fa-solid fa-code',
+        color: '#06b6d4',
+        colorDark: '#0891b2',
+        colorLight: '#ecfeff',
+        accent: '#164e63',
+        tag: 'PG · Technology',
+        seats: 60,
+        duration: '2 Years · 4 Semesters',
+        eligibility: 'OJEE Mandatory – OJEE 2026 Rank Card Holder. Passed any Bachelor\'s degree (e.g. B.E./B.Tech/BSC/B.Com/BA/BCA etc.) with Mathematics and obtained at least 50% marks (45% for reserved category candidates) in the qualifying examination.',
+        overview: 'The MCA program is a postgraduate course designed to equip students with advanced knowledge of computer applications, software engineering, and modern technologies. It builds on undergraduate fundamentals to prepare professionals for senior IT roles.',
+        highlights: [
+            'Advanced programming: Java, Python, .NET & Cloud Technologies',
+            'Software Engineering, System Design & Architecture',
+            'AI, Machine Learning, Data Science & Cybersecurity modules',
+            'Industry internships, live projects & research work',
+        ],
+        career: ['Software Architect', 'Senior Developer', 'IT Consultant', 'Project Manager', 'Research Scientist'],
+        syllabus: null,
+    },
+    {
+        code: 'MBA',
+        full: 'Master of Business Administration',
+        tagline: 'Strategise. Lead. Transform.',
+        icon: 'fa-solid fa-chart-pie',
+        color: '#ec4899',
+        colorDark: '#db2777',
+        colorLight: '#fdf2f8',
+        accent: '#831843',
+        tag: 'PG · Management',
+        seats: 60,
+        duration: '2 Years · 4 Semesters',
+        eligibility: 'OJEE/CAT/MAT/ATMA-2026 Rank Card Holder. Passed any Bachelor\'s degree (e.g. any stream/Graduation) with at least 50% aggregate marks (45% for reserved category candidates) in the last qualifying examination.',
+        overview: 'The MBA program is a flagship postgraduate management degree that prepares students for leadership roles in business, finance, marketing, and operations. It combines strategic thinking with real-world application.',
+        highlights: [
+            'Specialisations: Finance, Marketing, HR & Operations Management',
+            'Case study methodology, business simulations & live projects',
+            'Leadership development, communication & entrepreneurship skills',
+            'Industry interaction, guest lectures & national-level seminars',
+        ],
+        career: ['Business Strategist', 'Marketing Manager', 'Finance Analyst', 'HR Director', 'Entrepreneur'],
+        syllabus: null,
+    },
+];
+
 function useCountUp(target, duration = 1500, start = false) {
     const [count, setCount] = useState(0);
     useEffect(() => {
@@ -114,9 +163,9 @@ function useCountUp(target, duration = 1500, start = false) {
 }
 
 const stats = [
-    { value: 4, label: 'Programs', suffix: '' },
-    { value: 240, label: 'Total Seats', suffix: '+' },
-    { value: 4, label: 'Year Duration', suffix: '' },
+    { value: 6, label: 'Programs', suffix: '' },
+    { value: 458, label: 'Total Seats', suffix: '+' },
+    { value: 2, label: 'PG Programs', suffix: '' },
     { value: 100, label: 'Placement Assist', suffix: '%' },
 ];
 
@@ -228,10 +277,12 @@ function CourseCard({ course, index }) {
                     </div>
 
                     {/* Download */}
-                    <a href={course.syllabus} download className="rc2-syllabus-btn" style={{ background: `linear-gradient(135deg, ${course.colorDark}, ${course.color})` }}>
-                        <i className="fa-solid fa-file-pdf" />
-                        Download Syllabus
-                    </a>
+                    {course.syllabus && (
+                        <a href={course.syllabus} download className="rc2-syllabus-btn" style={{ background: `linear-gradient(135deg, ${course.colorDark}, ${course.color})` }}>
+                            <i className="fa-solid fa-file-pdf" />
+                            Download Syllabus
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
@@ -242,9 +293,9 @@ export default function RegularCourses() {
     return (
         <div className="rc2-page">
             <SEO
-                title="BBA, BCA, B.Sc CS & Data Science Courses in Angul – CTC"
-                description="Explore 4-year degree programs at Creative Techno College, Angul: BBA (120 seats), BCA (120 seats), B.Sc Computer Science (128 seats), B.Sc Data Science (30 seats). AICTE approved. Affiliated to Utkal University."
-                keywords="BBA college angul, BCA college angul, computer science college angul, data science college angul, best courses angul odisha, CTC angul courses, technical courses angul"
+                title="BBA, BCA, B.Sc CS, Data Science, MBA & MCA Courses in Angul – CTC"
+                description="Explore UG & PG degree programs at Creative Techno College, Angul: BBA, BCA, B.Sc CS, B.Sc Data Science (UG) and MBA, MCA (PG). AICTE approved. Affiliated to Utkal University & BPUT."
+                keywords="BBA college angul, BCA college angul, MBA college angul, MCA college angul, computer science college angul, data science college angul, best courses angul odisha, CTC angul courses, PG courses angul"
                 canonical="/academics/regular"
             />
             <style>{`
@@ -556,15 +607,46 @@ export default function RegularCourses() {
                 }
                 .rc2-cta-btn:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(245,197,24,0.55); }
 
+                /* ── CATEGORY HEADERS ── */
+                .rc2-category-header {
+                    max-width: 1400px; margin: 0 auto 32px; padding: 0 0 0 4px;
+                    display: flex; flex-direction: column; gap: 6px;
+                }
+                .rc2-category-badge {
+                    display: inline-flex; align-items: center; gap: 10px;
+                    padding: 10px 22px; border-radius: 40px;
+                    font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 800;
+                    width: fit-content;
+                }
+                .rc2-badge-ug {
+                    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+                    color: #1d4ed8; border: 2px solid #bfdbfe;
+                }
+                .rc2-badge-pg {
+                    background: linear-gradient(135deg, #fdf4ff, #fae8ff);
+                    color: #a21caf; border: 2px solid #e879f9;
+                }
+                .rc2-category-desc {
+                    font-size: 0.82rem; color: #64748b; font-weight: 500; margin: 0; padding-left: 4px;
+                }
+                .rc2-courses-grid--pg {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    max-width: 900px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+
                 /* ── RESPONSIVE ── */
                 @media (max-width: 1100px) {
                     .rc2-courses-grid { grid-template-columns: repeat(2, 1fr); }
+                    .rc2-courses-grid--pg { grid-template-columns: repeat(2, 1fr) !important; }
                     .rc2-features-grid { grid-template-columns: repeat(3, 1fr); }
                 }
                 @media (max-width: 768px) {
                     .rc2-stats-row { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
                     .rc2-intro-inner { padding: 36px 24px; }
                     .rc2-courses-grid { grid-template-columns: 1fr; }
+                    .rc2-courses-grid--pg { grid-template-columns: 1fr !important; }
                     .rc2-features-grid { grid-template-columns: 1fr 1fr; }
                     .rc2-hero { padding-top: 64px; }
                 }
@@ -588,7 +670,7 @@ export default function RegularCourses() {
                             Academics · Regular Programs
                         </div>
                         <h1>Shape Your Future with<br /><em>World-Class Degrees</em></h1>
-                        <p>Industry-aligned 4-year undergraduate programs crafted to equip you with knowledge, real-world skills, and the confidence to lead tomorrow's challenges.</p>
+                        <p>Industry-aligned UG & PG programs crafted to equip you with knowledge, real-world skills, and the confidence to lead tomorrow's challenges. Now offering MBA & MCA postgraduate programs.</p>
                     </div>
 
                     {/* RIGHT SIDE: Action Buttons */}
@@ -615,7 +697,7 @@ export default function RegularCourses() {
                 <div className="rc2-intro-inner">
                     <div className="rc2-intro-icon">🎓</div>
                     <h2>Our Academic Excellence</h2>
-                    <p>At Creative Techno College, Angul, we offer career-oriented undergraduate programs designed to equip students with the right blend of knowledge, skills, and industry exposure. Our courses focus on academic excellence, practical learning, and holistic development to prepare graduates for the future.</p>
+                    <p>At Creative Techno College, Angul, we offer career-oriented UG and PG programs designed to equip students with the right blend of knowledge, skills, and industry exposure. Our 4 undergraduate programs (BBA, BCA, B.Sc CS, B.Sc Data Science) and 2 postgraduate programs (MBA, MCA) focus on academic excellence, practical learning, and holistic development to prepare graduates for the future.</p>
                 </div>
             </section>
 
@@ -626,8 +708,23 @@ export default function RegularCourses() {
                     <h2>Courses <span>Offered</span></h2>
                     <p>Click on any course card to explore eligibility, highlights, career paths and download the full syllabus.</p>
                 </div>
+
+                {/* UG Courses */}
+                <div className="rc2-category-header">
+                    <span className="rc2-category-badge rc2-badge-ug"><i className="fa-solid fa-user-graduate" /> Undergraduate Programs (UG)</span>
+                    <p className="rc2-category-desc">4-Year Degree Programs · 8 Semesters · Affiliated to Utkal University</p>
+                </div>
                 <div className="rc2-courses-grid">
-                    {COURSES.map((course, i) => <CourseCard key={course.code} course={course} index={i} />)}
+                    {UG_COURSES.map((course, i) => <CourseCard key={course.code} course={course} index={i} />)}
+                </div>
+
+                {/* PG Courses */}
+                <div className="rc2-category-header" style={{ marginTop: '60px' }}>
+                    <span className="rc2-category-badge rc2-badge-pg"><i className="fa-solid fa-award" /> Postgraduate Programs (PG)</span>
+                    <p className="rc2-category-desc">2-Year Degree Programs · 4 Semesters · Affiliated to BPUT</p>
+                </div>
+                <div className="rc2-courses-grid rc2-courses-grid--pg">
+                    {PG_COURSES.map((course, i) => <CourseCard key={course.code} course={course} index={i} />)}
                 </div>
             </section>
 

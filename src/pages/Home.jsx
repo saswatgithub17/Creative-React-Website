@@ -5,7 +5,8 @@ import LocalBusinessSchema from '../components/LocalBusinessSchema';
 
 /* ── Admission Banner Popup ── */
 const bannerSlides = [
-    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/1.jpg', caption: 'Admissions Open 2026–27', sub: 'BBA • BCA • B.Sc CS • B.Sc Data Science' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/MBA_MCA.jpeg', caption: 'MBA & MCA Admissions Open 2026–27', sub: 'Master of Business Administration • Master of Computer Applications' },
+    { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/1.jpg', caption: 'Admissions Open 2026–27', sub: 'BBA • BCA • B.Sc CS • B.Sc Data Science • MBA • MCA' },
     { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/2.jpg', caption: '100% Placement Assistance', sub: 'Top Recruiters • Industry-Ready Programs' },
     { img: '/CTC%20NEW%20REACT%20WEBSITE/images/HOMEPAGE/4.jpg', caption: 'World-Class Campus & Library', sub: 'Modern Infrastructure • Expert Faculty' },
 ];
@@ -97,9 +98,10 @@ function useReveal() {
 /* ── Hero Slider ── */
 const slides = [
     { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/creative-campus.jpg', eyebrow: 'Welcome to Excellence', title: 'Shaping Leaders of Tomorrow', sub: 'AICTE Approved • Utkal University Affiliated • Est. 2010' },
+    { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/MBA_MCA.jpeg', eyebrow: 'MBA & MCA Admissions Open 2026–27', title: 'Advance Your Career with PG Programs', sub: 'Master of Business Administration • Master of Computer Applications' },
     { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/7.jpg', eyebrow: 'Beautiful Campus', title: 'Green & Student-Friendly Environment', sub: 'Sprawling campus of knowledge and growth' },
     { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/4.jpg', eyebrow: 'Modern Library', title: 'Resources to Empower Learning', sub: 'Thousands of books, journals & digital resources' },
-    { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/1.jpg', eyebrow: 'World-Class Education', title: 'Where Innovation Meets Tradition', sub: 'BBA • BCA • B.Sc (CS) • B.Sc (Data Science)' },
+    { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/1.jpg', eyebrow: 'World-Class Education', title: 'Where Innovation Meets Tradition', sub: 'BBA • BCA • B.Sc (CS) • B.Sc (Data Science) • MBA • MCA' },
     { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/2.jpg', eyebrow: '100% Placement Assistance', title: 'Your Future Starts Here', sub: '1500+ Students Placed • 100+ Recruiting Companies' },
     { img: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/5.jpg', eyebrow: 'Vibrant Campus Life', title: 'Learn. Grow. Excel.', sub: 'Sports • Cultural • Technocrat • Disha & CSR' },
     { img: '/CTC%20NEW%20REACT%20WEBSITE/images/CULTURAL/saraswati_puja/sp1.jpeg', eyebrow: 'Saraswati Puja Celebrations', title: 'Honouring the Goddess of Knowledge', sub: 'Faith • Culture • Togetherness' },
@@ -210,10 +212,12 @@ function StatsSection() {
 
 /* ── Courses ── */
 const courses = [
-    { abbr: 'BBA', full: 'Bachelor of Business Administration', seats: 120, icon: '💼', desc: 'Management, Marketing, Finance & Entrepreneurship' },
-    { abbr: 'BCA', full: 'Bachelor of Computer Applications', seats: 120, icon: '💻', desc: 'Programming, Databases & Software Development' },
-    { abbr: 'B.Sc (CS)', full: 'Bachelor of Science in Computer Science', seats: 128, icon: '🖥️', desc: 'Algorithms, Theory & Practical Programming' },
-    { abbr: 'B.Sc (DS)', full: 'Bachelor of Science in Data Science', seats: 30, icon: '📊', desc: 'Machine Learning, Statistics & Data Analytics' },
+    { abbr: 'BBA', full: 'Bachelor of Business Administration', seats: 120, icon: '💼', desc: 'Management, Marketing, Finance & Entrepreneurship', type: 'UG · 4 Years' },
+    { abbr: 'BCA', full: 'Bachelor of Computer Applications', seats: 120, icon: '💻', desc: 'Programming, Databases & Software Development', type: 'UG · 4 Years' },
+    { abbr: 'B.Sc (CS)', full: 'Bachelor of Science in Computer Science', seats: 128, icon: '🖥️', desc: 'Algorithms, Theory & Practical Programming', type: 'UG · 4 Years' },
+    { abbr: 'B.Sc (DS)', full: 'Bachelor of Science in Data Science', seats: 30, icon: '📊', desc: 'Machine Learning, Statistics & Data Analytics', type: 'UG · 4 Years' },
+    { abbr: 'MBA', full: 'Master of Business Administration', seats: 60, icon: '🏆', desc: 'Finance, Marketing, HR & Operations Management', type: 'PG · 2 Years' },
+    { abbr: 'MCA', full: 'Master of Computer Applications', seats: 60, icon: '🚀', desc: 'Software Engineering, AI/ML & Cloud Technologies', type: 'PG · 2 Years' },
 ];
 
 /* ── Admin ── */
@@ -249,7 +253,7 @@ const recruiters = [
 const faqs = [
     { q: 'Which is the best college in Angul?', a: 'Creative Techno College (CTC), Angul is the top-ranked professional and technical college in Angul, Odisha. AICTE-approved, affiliated to Utkal University, and established in 2010, CTC has consistently delivered quality education with a 95% placement rate.' },
     { q: 'Is CTC Angul approved by AICTE?', a: 'Yes! CTC is approved by AICTE (All India Council for Technical Education) and permanently affiliated to Utkal University. It is also recognized by the Government of Odisha, Department of Higher Education.' },
-    { q: 'What courses are offered at Creative Techno College, Angul?', a: 'CTC offers 4-year degree programs: BBA (Business Administration) – 120 seats, BCA (Computer Applications) – 120 seats, B.Sc Computer Science (Honours) – 128 seats, and B.Sc Data Science – 30 seats.' },
+    { q: 'What courses are offered at Creative Techno College, Angul?', a: 'CTC offers UG programs: BBA (Business Administration) – 120 seats, BCA (Computer Applications) – 120 seats, B.Sc Computer Science (Honours) – 128 seats, B.Sc Data Science – 30 seats. PG programs: MBA (Master of Business Administration) – 60 seats, MCA (Master of Computer Applications) – 60 seats.' },
     { q: 'What is the placement record of Creative Techno College?', a: '1500+ students have been successfully placed in top companies like Wipro, TCS, Infosys, HCL, Capgemini, IBM, Cognizant, Accenture, and more. The highest package is ₹4.5 LPA with a 95% overall placement rate.' },
     { q: 'How to apply for admission in CTC Angul 2026-27?', a: 'Eligibility: 10+2 pass with minimum 45% marks from any recognised board. Apply online at creativecollege.in or visit the campus at Baluakata, Saradhapur, Angul. Call +91-9778427170 for help.' },
     { q: 'Does CTC Angul have hostel facilities?', a: 'Yes, CTC provides separate, secure hostel facilities for boys and girls with 24/7 security, comfortable rooms, and all essential amenities at affordable rates.' },
@@ -304,7 +308,7 @@ export default function Home() {
             <SEO
                 title="Creative Techno College, Angul"
                 noSuffix
-                description="Creative Techno College (CTC) is the top AICTE-approved college in Angul, Odisha. Offering BBA, BCA, B.Sc Computer Science & Data Science with 95% placement record. Affiliated to Utkal University. Admission open 2026-27."
+                description="Creative Techno College (CTC) is the top AICTE-approved college in Angul, Odisha. Offering BBA, BCA, B.Sc Computer Science, B.Sc Data Science, MBA & MCA with 95% placement record. Affiliated to Utkal University. Admission open 2026-27."
                 keywords="top college in angul, best college angul, top technical college angul, top professional college angul, BCA college angul, BBA college angul, AICTE college angul, creative techno college angul, college in angul odisha"
                 canonical="/"
             />
@@ -336,7 +340,7 @@ export default function Home() {
                     <p>
                         Located at Baluakata, Saradhapur, Angul, we proudly serve students from across Angul, Dhenkanal,
                         Sambalpur, Cuttack, and all of Odisha. We offer industry-aligned programs in BBA, BCA,
-                        B.Sc (Computer Science), and B.Sc (Data Science) — equipping students with skills
+                        B.Sc (Computer Science), B.Sc (Data Science), MBA and MCA — equipping students with skills
                         to thrive in the modern corporate world.
                     </p>
                     <p>
@@ -424,7 +428,7 @@ export default function Home() {
                         <div key={i} className="course-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                             <div className="course-abbr-banner">
                                 <h3>{c.abbr}</h3>
-                                <span className="course-type-tag">4-Year Degree</span>
+                                <span className="course-type-tag">{c.type || '4-Year Degree'}</span>
                             </div>
                             <div className="course-body">
                                 <p className="course-full">{c.full}</p>
