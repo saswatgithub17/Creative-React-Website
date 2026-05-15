@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -43,9 +44,25 @@ const Stub = ({ title }) => (
     </div>
 );
 
+function AnalyticsTracker() {
+    const location = useLocation();
+
+    useEffect(() => {
+        // Ping Google Analytics & Ads on route change
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            const pagePath = location.pathname + location.search;
+            window.gtag('config', 'G-53E5PMMFF8', { page_path: pagePath });
+            window.gtag('config', 'AW-16982895656', { page_path: pagePath });
+        }
+    }, [location]);
+
+    return null;
+}
+
 export default function App() {
     return (
         <BrowserRouter basename="/CTC%20NEW%20REACT%20WEBSITE">
+            <AnalyticsTracker />
             <ScrollToTop />
             <Layout>
                 <Routes>
