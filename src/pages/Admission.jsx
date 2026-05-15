@@ -246,8 +246,51 @@ export default function Admission() {
                             Government recognised · Utkal University affiliated · Industry-focused curriculum
                         </p>
                     </div>
+                    <div className="adm2-heading reveal" style={{ marginBottom: '24px', marginTop: '16px', textAlign: 'center' }}>
+                        <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)' }}>Undergraduate (UG) Programs</h3>
+                    </div>
+                    <div className="adm2-courses" style={{ marginBottom: '40px' }}>
+                        {courses.filter(c => !['MBA', 'MCA'].includes(c.abbr)).map((c, i) => (
+                            <div key={i} className="adm2-course reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+                                {/* accent top border */}
+                                <div style={{ height: '4px', background: c.accent, borderRadius: '20px 20px 0 0', margin: '-28px -28px 24px', flexShrink: 0 }} />
+                                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '16px' }}>
+                                    <div style={{ background: `${c.accent}1a`, border: `1px solid ${c.accent}44`, borderRadius: '14px', width: '52px', height: '52px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem', color: c.accent, flexShrink: 0 }}>
+                                        <i className={c.icon}></i>
+                                    </div>
+                                    <div style={{ background: 'var(--page-bg)', borderRadius: '20px', padding: '4px 13px', fontSize: '0.75rem', fontFamily: 'var(--font-head)', fontWeight: 700, color: 'var(--navy)', whiteSpace: 'nowrap' }}>
+                                        {c.seats} seats
+                                    </div>
+                                </div>
+                                <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.4rem', fontWeight: 900, color: 'var(--navy)', marginBottom: '4px' }}>{c.abbr}</h3>
+                                <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px', lineHeight: 1.5 }}>{c.full}</p>
+                                {c.note && (
+                                    <p style={{ fontSize: '0.69rem', color: c.accent, fontWeight: 700, fontFamily: 'var(--font-head)', marginBottom: '10px', background: `${c.accent}12`, border: `1px solid ${c.accent}30`, borderRadius: '8px', padding: '4px 10px', display: 'inline-block' }}>
+                                        <i className="fa-solid fa-circle-info" style={{ marginRight: '5px' }}></i>{c.note}
+                                    </p>
+                                )}
+                                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                                    {c.tags.map((t, j) => (
+                                        <span key={j} style={{ background: `${c.accent}16`, color: c.accent, border: `1px solid ${c.accent}30`, borderRadius: '10px', padding: '3px 10px', fontSize: '0.69rem', fontFamily: 'var(--font-head)', fontWeight: 600 }}>{t}</span>
+                                    ))}
+                                </div>
+                                <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(10,22,40,0.07)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-head)', fontWeight: 600 }}>
+                                        <i className="fa-regular fa-clock" style={{ marginRight: '5px' }}></i>{c.duration} · {c.fee}
+                                    </span>
+                                    <Link to="/admission/apply" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: c.accent, color: c.accent === '#f5c518' ? '#0a1628' : '#fff', padding: '7px 16px', borderRadius: '20px', fontSize: '0.76rem', fontFamily: 'var(--font-head)', fontWeight: 700, textDecoration: 'none', transition: 'opacity 0.2s' }}>
+                                        Apply <i className="fa-solid fa-arrow-right"></i>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="adm2-heading reveal" style={{ marginBottom: '24px', textAlign: 'center' }}>
+                        <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy)' }}>Postgraduate (PG) Programs</h3>
+                    </div>
                     <div className="adm2-courses">
-                        {courses.map((c, i) => (
+                        {courses.filter(c => ['MBA', 'MCA'].includes(c.abbr)).map((c, i) => (
                             <div key={i} className="adm2-course reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                                 {/* accent top border */}
                                 <div style={{ height: '4px', background: c.accent, borderRadius: '20px 20px 0 0', margin: '-28px -28px 24px', flexShrink: 0 }} />

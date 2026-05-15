@@ -423,12 +423,39 @@ export default function Home() {
                         Industry-aligned programs designed to prepare you for the careers of tomorrow.
                     </p>
                 </div>
-                <div className="courses-grid">
-                    {courses.map((c, i) => (
+                <div style={{ textAlign: 'center', marginTop: '16px', marginBottom: '24px' }}>
+                    <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)' }}>Undergraduate (UG) Programs</h3>
+                </div>
+                <div className="courses-grid" style={{ marginBottom: '40px' }}>
+                    {courses.filter(c => !['MBA', 'MCA'].includes(c.abbr)).map((c, i) => (
                         <div key={i} className="course-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                             <div className="course-abbr-banner">
                                 <h3>{c.abbr}</h3>
                                 <span className="course-type-tag">{c.type || '4-Year Degree'}</span>
+                            </div>
+                            <div className="course-body">
+                                <p className="course-full">{c.full}</p>
+                                <p className="course-desc">{c.desc}</p>
+                                <div className="course-seats-badge">
+                                    <i className="fa-solid fa-users"></i> {c.seats} Seats
+                                </div>
+                                <Link to="/admission" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '4px', color: 'var(--blue-light)', fontWeight: 700, fontSize: '0.85rem', fontFamily: 'var(--font-head)' }}>
+                                    Apply Now <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.72rem' }}></i>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                    <h3 style={{ fontFamily: 'var(--font-head)', fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)' }}>Postgraduate (PG) Programs</h3>
+                </div>
+                <div className="courses-grid">
+                    {courses.filter(c => ['MBA', 'MCA'].includes(c.abbr)).map((c, i) => (
+                        <div key={i} className="course-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+                            <div className="course-abbr-banner">
+                                <h3>{c.abbr}</h3>
+                                <span className="course-type-tag">{c.type || '2-Year Degree'}</span>
                             </div>
                             <div className="course-body">
                                 <p className="course-full">{c.full}</p>

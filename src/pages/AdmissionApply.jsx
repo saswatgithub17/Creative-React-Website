@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const FormContext = createContext(null);
 /* API endpoint — works on Hostinger after deployment */
 const SUBMIT_URL = `${import.meta.env.BASE_URL}Admission/submit.php`;
 
@@ -41,6 +42,33 @@ function Field({ label, icon, error, children }) {
             {children}
             {error && <span className="af-error"><i className="fa-solid fa-circle-exclamation"></i> {error}</span>}
         </div>
+    );
+}
+
+function Input({ name, type = 'text', placeholder, ...rest }) {
+    const { form, set, errors, clrErr } = useContext(FormContext);
+    return (
+        <input
+            className={`af-input ${errors[name] ? 'af-input-err' : ''}`}
+            type={type}
+            value={form[name]}
+            placeholder={placeholder}
+            onChange={e => { set(name, e.target.value); clrErr(name); }}
+            {...rest}
+        />
+    );
+}
+
+function Select({ name, children }) {
+    const { form, set, errors, clrErr } = useContext(FormContext);
+    return (
+        <select
+            className={`af-input ${errors[name] ? 'af-input-err' : ''}`}
+            value={form[name]}
+            onChange={e => { set(name, e.target.value); clrErr(name); }}
+        >
+            {children}
+        </select>
     );
 }
 
@@ -140,30 +168,10 @@ export default function AdmissionApply() {
         }
     }
 
-    /* ── STEP RENDERERS ── */
-    const Input = ({ name, type = 'text', placeholder, ...rest }) => (
-        <input
-            className={`af-input ${errors[name] ? 'af-input-err' : ''}`}
-            type={type}
-            value={form[name]}
-            placeholder={placeholder}
-            onChange={e => { set(name, e.target.value); clrErr(name); }}
-            {...rest}
-        />
-    );
-    const Select = ({ name, children }) => (
-        <select
-            className={`af-input ${errors[name] ? 'af-input-err' : ''}`}
-            value={form[name]}
-            onChange={e => { set(name, e.target.value); clrErr(name); }}
-        >
-            {children}
-        </select>
-    );
-
     if (submitted) return <SuccessScreen name={form.fullName} course={form.course} appId={appId} navigate={navigate} />;
 
     return (
+        <FormContext.Provider value={{ form, set, errors, clrErr }}>
         <div className="af-page">
             {/* ── Page Hero ── */}
             <div className="af-hero">
@@ -258,7 +266,7 @@ export default function AdmissionApply() {
                                 <Field label="Year of Passing +2 *" error={errors.yearPass}>
                                     <Select name="yearPass">
                                         <option value="">Select Year</option>
-                                        {[2025, 2024, 2023, 2022, 2021, 2020, 2019].map(y => <option key={y}>{y}</option>)}
+                                        {[2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019].map(y => <option key={y}>{y}</option>)}
                                     </Select>
                                 </Field>
                             </div>
@@ -440,6 +448,7 @@ export default function AdmissionApply() {
                 </aside>
             </div>
         </div>
+        </FormContext.Provider>
     );
 }
 
