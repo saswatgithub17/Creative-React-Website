@@ -293,9 +293,9 @@ export default function RegularCourses() {
     return (
         <div className="rc2-page">
             <SEO
-                title="BBA, BCA, B.Sc CS, Data Science, MBA & MCA Courses in Angul – CTC"
-                description="Explore UG & PG degree programs at Creative Techno College, Angul: BBA, BCA, B.Sc CS, B.Sc Data Science (UG) and MBA, MCA (PG). AICTE approved. Affiliated to Utkal University & BPUT."
-                keywords="BBA college angul, BCA college angul, MBA college angul, MCA college angul, computer science college angul, data science college angul, best courses angul odisha, CTC angul courses, PG courses angul"
+                title="Courses Offered | AI, Data Science, BCA, BBA, MBA | CTC Angul"
+                description="Explore our wide range of courses at CTC. We are the best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Odisha, also offering top MBA and MCA programs."
+                keywords="BBA college angul, BCA college angul, MBA college angul, MCA college angul, top Data Science course odisha, top AI course odisha, best Bsc.CS(H) college odisha, engineering courses odisha"
                 canonical="/academics/regular"
             />
             <style>{`
@@ -667,10 +667,10 @@ export default function RegularCourses() {
                     <div className="rc2-hero-left">
                         <div className="rc2-hero-chip">
                             <i className="fa-solid fa-graduation-cap" />
-                            Academics · Regular Programs
+                            Academic Programs
                         </div>
-                        <h1>Shape Your Future with<br /><em>World-Class Degrees</em></h1>
-                        <p>Industry-aligned UG & PG programs crafted to equip you with knowledge, real-world skills, and the confidence to lead tomorrow's challenges. Now offering MBA & MCA postgraduate programs.</p>
+                        <h1>Academic Programs at the<br /><em>Best College in Odisha</em></h1>
+                        <p>At Creative Techno College, our curriculum is designed for the future. For students passionate about technology, we offer the top Data Science course in Odisha and the top AI course in Odisha. For those aiming for business and applications, we are the best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Angul.</p>
                     </div>
 
                     {/* RIGHT SIDE: Action Buttons */}
@@ -696,8 +696,9 @@ export default function RegularCourses() {
             <section className="rc2-intro">
                 <div className="rc2-intro-inner">
                     <div className="rc2-intro-icon">🎓</div>
-                    <h2>Our Academic Excellence</h2>
-                    <p>At Creative Techno College, Angul, we offer career-oriented UG and PG programs designed to equip students with the right blend of knowledge, skills, and industry exposure. Our 4 undergraduate programs (BBA, BCA, B.Sc CS, B.Sc Data Science) and 2 postgraduate programs (MBA, MCA) focus on academic excellence, practical learning, and holistic development to prepare graduates for the future.</p>
+                    <h2>Technology & Management: <span>Top MBA, MCA, AI & Data Science Courses</span></h2>
+                    <p style={{ marginBottom: '16px' }}>For postgraduates seeking leadership roles or advanced technical expertise, CTC is highly ranked as the <strong>top MBA and MCA College in Odisha</strong>.</p>
+                    <p>Our engineering courses and degree programs are built on a foundation of skill development and practical application, guaranteeing that our graduates are ready to excel in the global workforce.</p>
                 </div>
             </section>
 

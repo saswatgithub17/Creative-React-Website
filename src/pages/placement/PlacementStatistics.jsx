@@ -707,9 +707,9 @@ export default function PlacementStatistics() {
   return (
     <>
       <SEO
-        title="Placement Record 2025 – 1500+ Placed | Creative Techno College Angul"
-        description="CTC Angul placement statistics 2020–2025. 1500+ students placed in TCS, Wipro, LTI Mindtree, Cognizant, Infosys, Capgemini, Deloitte, Accenture and more. Highest package ₹4.5 LPA. 95% placement rate."
-        keywords="CTC angul placement, creative techno college placement, placement record angul college, best placement college angul, TCS placement angul, Wipro placement angul"
+        title="Placements & Careers | Top MBA & MCA College in Odisha | CTC"
+        description="Creative Techno College offers exceptional placement records. Discover career opportunities after completing our Data Science, AI, Engineering, and Management courses."
+        keywords="CTC angul placement, creative techno college placement, top MBA college odisha, top MCA college odisha, best placement college odisha, Data Science placement angul"
         canonical="/placement/statistics"
       />
       <style>{css}</style>
@@ -719,8 +719,9 @@ export default function PlacementStatistics() {
         <div className="ps-hero">
           <div className="ps-hero-content">
             <div className="ps-hero-badge"><i className="fa-solid fa-chart-bar" />Placement Statistics · 2020–2025</div>
-            <h1 className="ps-hero-h1">Our <em>Placement</em><br />Success Story</h1>
-            <p className="ps-hero-sub">Complete year-wise placement data for Creative Techno College — {totalAllTime}+ students placed in leading companies across India.</p>
+            <h1 className="ps-hero-h1">Career <em>Placements</em> at the<br />Top Educational Institution in Angul</h1>
+            <p className="ps-hero-sub">Education is incomplete without a clear path to a successful career. At CTC, we don't just teach; we place. Our dedicated placement cell ensures that graduates from the <strong>top MBA and MCA College in Angul</strong> are recruited by leading multinational companies.</p>
+            <p className="ps-hero-sub" style={{ marginTop: '-20px' }}>Students completing our <strong>top Data Science course in Angul</strong> or our engineering programs benefit from rigorous interview preparation, resume building, and career-oriented learning. As the <strong>best college in Odisha</strong> for robust industry partnerships, we guarantee that our students step out of our campus directly into rewarding professional roles.</p>
             <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
               {[
                 { val: `${totalAllTime}+`, label: 'Total Placements' },

@@ -31,9 +31,9 @@ export default function AboutUs() {
     return (
         <>
             <SEO
-                title="About Creative Techno College – Top AICTE College in Angul, Odisha"
-                description="Creative Techno College (CTC) Angul, established in 2010, is the best AICTE-approved college in Angul, Odisha. Located at Baluakata, Saradhapur, Angul. Affiliated to Utkal University. Hostel, transport, placement – all under one roof."
-                keywords="about creative techno college angul, CTC angul about, best college angul odisha, AICTE approved college angul, Utkal University affiliated college angul, professional college angul"
+                title="About Creative Techno College | Top Educational Institution in Odisha"
+                description="Learn about Creative Techno College (CTC), the top engineering and degree college in Angul, dedicated to modern education, skill development, and student success."
+                keywords="about creative techno college angul, CTC angul about, best college angul odisha, top educational institution odisha, best residential college angul, modern education odisha"
                 canonical="/about/ctc"
             />
 
@@ -41,8 +41,8 @@ export default function AboutUs() {
             <div className="page-hero">
                 <div className="page-hero-dots" />
                 <span className="section-label">Know Us Better</span>
-                <h1>About <span>Creative Techno College</span></h1>
-                <p>Excellence in Education since 2010 — Angul, Odisha</p>
+                <h1>About <span>Creative Techno College: A Legacy of Excellence</span></h1>
+                <p>Top Educational Institution in Odisha — Angul</p>
             </div>
 
             {/* ── About CTC ── */}
@@ -51,22 +51,16 @@ export default function AboutUs() {
                     {/* Text column */}
                     <div className="reveal-left" style={{ flex: '1 1 380px' }}>
                         <span className="section-label">Our Story</span>
-                        <h2 className="section-title">A Legacy of <span>Excellence</span></h2>
+                        <h2 className="section-title">Our Vision as the <span>Top College in Odisha</span></h2>
                         <p style={{ color: '#4a6080', lineHeight: 1.9, marginBottom: '16px' }}>
-                            Creative Techno College (CTC), Angul (A Unit of Creative Knowledge Foundation) is located at
-                            Balukata, Sharadhapur, Angul. It is recognized by Govt. of Odisha, Dept. of Higher Education
-                            and affiliated to Utkal University — a pioneer college in Central Odisha providing IT and
-                            management education.
+                            Established with a vision to redefine higher education, Creative Techno College has grown into the <strong>top college in Odisha</strong> for technology and management studies. Our mission goes beyond textbooks; we focus on holistic, career-oriented learning that transforms students into industry leaders.
                         </p>
                         <p style={{ color: '#4a6080', lineHeight: 1.9, marginBottom: '16px' }}>
-                            The college has a group of experienced faculties and supporting staff, well-equipped
-                            infrastructure and air-conditioned computer labs. Besides course curriculum, CTC emphasizes
-                            developing students' professional skills through soft skill training including spoken English,
-                            group discussions, debates, mock interviews, and more.
+                            Recognized widely as the <strong>top educational institution in Odisha</strong>, we offer a secure and dynamic environment, making us the <strong>best residential college in Angul</strong>. Our dedicated faculty, modern education methodologies, and robust infrastructure ensure that whether you are pursuing our <strong>top Data Science course in Angul</strong> or seeking a foundation in business administration, you receive an education that meets global standards.
                         </p>
                         <p style={{ color: '#4a6080', lineHeight: 1.9, marginBottom: '28px' }}>
                             With a dedicated placement cell, experienced faculty, and vibrant campus life through Gymkhana
-                            activities, CTC provides a holistic educational experience that goes beyond textbooks and classrooms.
+                            activities, CTC provides a holistic educational experience that fosters innovation and modern education.
                         </p>
                         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                             <Link to="/admission" className="btn-primary">

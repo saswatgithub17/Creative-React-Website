@@ -111,6 +111,25 @@ function EnquiryForm() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        // Track successful enquiry submission in GTM/GA4
+        if (typeof window !== 'undefined') {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'contact_form_submitted',
+                form_type: 'whatsapp_enquiry',
+                dept: form.dept || 'General'
+            });
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'contact', {
+                    'event_category': 'engagement',
+                    'event_label': 'WhatsApp Enquiry Submit',
+                    'dept': form.dept || 'General'
+                });
+            }
+            console.log('WhatsApp enquiry conversion events dispatched.');
+        }
+
         const text = `*CTC Enquiry*\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email || '—'}\nDept: ${form.dept || '—'}\nMessage: ${form.msg}`;
         window.open(`https://wa.me/919668844571?text=${encodeURIComponent(text)}`, '_blank');
         setSent(true);
@@ -193,9 +212,9 @@ export default function Contacts() {
     return (
         <>
             <SEO
-                title="Contact Creative Techno College – Angul, Odisha | Phone, Address & Map"
-                description="Contact Creative Techno College (CTC), Angul. Campus address: Baluakata, Saradhapur, Angul 759143. Admissions helpline: +91-9778427170. Email: principal.creativecollege@gmail.com. Open Mon–Sat, 9AM–5PM."
-                keywords="creative techno college contact, CTC angul phone number, CTC angul address, college in angul contact, creative college angul helpline"
+                title="Contact Creative Techno College | Best College in Angul, Odisha"
+                description="Get in touch with Creative Techno College, Angul. Contact us for admission inquiries regarding BCA, BBA, MBA, MCA, AI, and Data Science programs."
+                keywords="creative techno college contact, CTC angul phone number, top AI course odisha, best residential college angul, college in angul contact, admission inquiry angul"
                 canonical="/contacts"
             />
 
@@ -205,9 +224,10 @@ export default function Contacts() {
                 <div className="ct-hero-inner">
                     <span className="section-label" style={{ color: 'var(--cyan)' }}>Reach Out</span>
                     <h1>
-                        Helpline <span style={{ color: 'var(--gold)' }}>Contacts</span>
+                        Contact the <span style={{ color: 'var(--gold)' }}>Top College in Angul</span>
                     </h1>
-                    <p>Find the right person for your query — our team is here to help.</p>
+                    <p style={{ maxWidth: '700px', margin: '0 auto 10px' }}>Ready to join the <strong>top educational institution in Angul</strong>? Our admissions team is here to answer all your questions regarding course structures, hostel facilities, and campus life.</p>
+                    <p style={{ maxWidth: '700px', margin: '0 auto 20px', fontSize: '0.85rem' }}>Visit us to see firsthand why we are considered the <strong>best residential college in Angul</strong>. Whether you are an engineering aspirant, a future data scientist inquiring about the <strong>top AI course in Odisha</strong>, or a parent seeking the best education for your child, contact Creative Techno College today to shape a brighter tomorrow.</p>
                     {/* search */}
                     <div className="ct-search-wrap">
                         <i className="fa-solid fa-magnifying-glass"></i>

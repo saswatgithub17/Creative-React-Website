@@ -306,10 +306,10 @@ export default function Home() {
         <>
             {/* ── Per-page SEO ── */}
             <SEO
-                title="Creative Techno College, Angul"
+                title="Top College in Angul & Odisha | BBA, BCA, MBA & Data Science | CTC"
                 noSuffix
-                description="Creative Techno College (CTC) is the top AICTE-approved college in Angul, Odisha. Offering BBA, BCA, B.Sc Computer Science, B.Sc Data Science, MBA & MCA with 95% placement record. Affiliated to Utkal University. Admission open 2026-27."
-                keywords="top college in angul, best college angul, top technical college angul, top professional college angul, BCA college angul, BBA college angul, AICTE college angul, creative techno college angul, college in angul odisha"
+                description="Welcome to Creative Techno College, the best residential college in Angul, Odisha. Offering top AI, Data Science, BCA, BBA, MBA & MCA courses with excellent placement."
+                keywords="top college in angul, best college angul, best residential college in odisha, top technical college angul, top professional college angul, BCA college angul, BBA college angul, AICTE college angul, creative techno college angul, college in angul odisha"
                 canonical="/"
             />
             {/* ── Structured Data (JSON-LD for Google Knowledge Panel) ── */}
@@ -330,23 +330,16 @@ export default function Home() {
             {/* About */}
             <section className="home-about">
                 <div className="home-about-text reveal-left">
-                    <span className="section-label">About Us</span>
-                    <h2 className="section-title">Empowering Minds at <span>Creative Techno College</span></h2>
+                    <span className="section-label">Welcome to Creative Techno College</span>
+                    <h2 className="section-title">The <span>Best College in Angul, Odisha</span></h2>
                     <p>
-                        Creative Techno College (CTC), Angul – the <strong>top professional and technical college in Angul, Odisha</strong> –
-                        is established under the aegis of Creative Knowledge Foundation. AICTE-approved and permanently affiliated
-                        to Utkal University, CTC has been a beacon of quality education in Angul district since 2010.
+                        Looking for the <strong>best college in Angul</strong> to kickstart your career? At Creative Techno College (CTC), we pride ourselves on being the <strong>top educational institution in Angul</strong> and a premier destination for students across the state. Whether you are an aspiring software developer or a future business leader, CTC is recognized as the <strong>best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Odisha</strong>.
                     </p>
                     <p>
-                        Located at Baluakata, Saradhapur, Angul, we proudly serve students from across Angul, Dhenkanal,
-                        Sambalpur, Cuttack, and all of Odisha. We offer industry-aligned programs in BBA, BCA,
-                        B.Sc (Computer Science), B.Sc (Data Science), MBA and MCA — equipping students with skills
-                        to thrive in the modern corporate world.
+                        As the demand for modern tech skills skyrockets, we offer the <strong>top Data Science course in Odisha</strong> and the <strong>top AI course in Angul</strong>, providing students with career-oriented learning and hands-on skill development. Beyond undergraduate excellence, CTC stands as the <strong>top MBA and MCA College in Angul</strong>, bridging the gap between academic theory and corporate expectations. 
                     </p>
                     <p>
-                        With state-of-the-art infrastructure, experienced faculty, and strong industry connections,
-                        CTC provides a world-class education with <strong>95% placement assistance</strong> and
-                        partnerships with 100+ top recruiting companies.
+                        Experience modern education within the <strong>best residential college in Odisha</strong>, featuring state-of-the-art infrastructure, secure hostel facilities, and a vibrant campus life designed for your success. We provide a world-class education with <strong>95% placement assistance</strong> and partnerships with 100+ top recruiting companies.
                     </p>
                     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/about/ctc" className="btn-primary">

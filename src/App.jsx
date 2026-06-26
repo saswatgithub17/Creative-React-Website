@@ -52,7 +52,7 @@ function AnalyticsTracker() {
         if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
             const pagePath = location.pathname + location.search;
             window.gtag('config', 'G-53E5PMMFF8', { page_path: pagePath });
-            window.gtag('config', 'AW-16982895656', { page_path: pagePath });
+            window.gtag('config', 'GT-NSV9FQGQ', { page_path: pagePath });
         }
     }, [location]);
 

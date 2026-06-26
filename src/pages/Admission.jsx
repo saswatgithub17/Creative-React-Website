@@ -189,9 +189,9 @@ export default function Admission() {
     return (
         <>
             <SEO
-                title="Admission 2026-27 – BBA, BCA, B.Sc CS, Data Science, MBA & MCA | CTC Angul"
-                description="Apply for admission at Creative Techno College, Angul. UG: BBA (120 seats), BCA (120 seats), B.Sc CS (128 seats), B.Sc Data Science (30 seats). PG: MBA (60 seats), MCA (60 seats). AICTE approved."
-                keywords="admission in angul college, CTC angul admission 2026, BCA admission angul, BBA admission angul, MBA admission angul, MCA admission angul, best college admission angul odisha, creative techno college admission"
+                title="Admissions Open 2026 | Top College in Angul, Odisha | Apply Now"
+                description="Secure your seat at the best college in Angul. Apply now for BCA, BBA, BSc Data Science, AI, MBA, and MCA programs at Creative Techno College."
+                keywords="admission in angul college, CTC angul admission 2026, BCA admission angul, top AI course angul, best residential college odisha, BBA admission angul, MBA admission angul, MCA admission angul"
                 canonical="/admission"
             />
 
@@ -201,10 +201,9 @@ export default function Admission() {
             <div className="adm2-hero">
                 <div className="adm2-hero-glow" />
                 <div className="adm2-hero-content">
-                    <span className="section-label" style={{ color: 'var(--cyan)' }}>Admissions Open</span>
+                    <span className="section-label" style={{ color: 'var(--cyan)' }}>Admissions Open 2026</span>
                     <h1>
-                        Shape Your <span style={{ color: 'var(--gold)' }}>Future</span>
-                        <br />at Creative Techno College
+                        Admissions at <span style={{ color: 'var(--gold)' }}>Creative Techno College</span>
                     </h1>
                     <p>AICTE Approved · Utkal University Affiliated · Angul, Odisha</p>
                     <div className="adm2-hero-btns">
@@ -240,10 +239,13 @@ export default function Admission() {
             <section className="adm2-section" style={{ background: 'var(--page-bg)' }}>
                 <div className="adm2-wrap">
                     <div className="adm2-heading reveal">
-                        <span className="section-label">Academic Programs</span>
-                        <h2 className="section-title">Courses <span>Offered</span></h2>
+                        <span className="section-label">Join the Best Residential College in Angul</span>
+                        <h2 className="section-title">Eligibility for Our <span>Top Courses</span></h2>
+                        <p className="section-subtitle" style={{ margin: '0 auto 16px' }}>
+                            Take the first step toward a brilliant career by securing your admission at the <strong>top college in Angul</strong>. Creative Techno College welcomes ambitious students after 10th and 12th, as well as graduates seeking advanced degrees.
+                        </p>
                         <p className="section-subtitle" style={{ margin: '0 auto' }}>
-                            Government recognised · Utkal University affiliated · Industry-focused curriculum
+                            Whether you are looking to enroll in the <strong>top AI course in Angul</strong> or join the <strong>best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Odisha</strong>, our admission process is streamlined and student-friendly. Parents seeking a safe, nurturing environment will find peace of mind knowing CTC is the <strong>best residential college in Odisha</strong>.
                         </p>
                     </div>
                     <div className="adm2-heading reveal" style={{ marginBottom: '24px', marginTop: '16px', textAlign: 'center' }}>
@@ -276,7 +278,7 @@ export default function Admission() {
                                 </div>
                                 <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(10,22,40,0.07)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-head)', fontWeight: 600 }}>
-                                        <i className="fa-regular fa-clock" style={{ marginRight: '5px' }}></i>{c.duration} · {c.fee}
+                                        <i className="fa-regular fa-clock" style={{ marginRight: '5px' }}></i>{c.duration}
                                     </span>
                                     <Link to="/admission/apply" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: c.accent, color: c.accent === '#f5c518' ? '#0a1628' : '#fff', padding: '7px 16px', borderRadius: '20px', fontSize: '0.76rem', fontFamily: 'var(--font-head)', fontWeight: 700, textDecoration: 'none', transition: 'opacity 0.2s' }}>
                                         Apply <i className="fa-solid fa-arrow-right"></i>
@@ -316,7 +318,7 @@ export default function Admission() {
                                 </div>
                                 <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(10,22,40,0.07)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-head)', fontWeight: 600 }}>
-                                        <i className="fa-regular fa-clock" style={{ marginRight: '5px' }}></i>{c.duration} · {c.fee}
+                                        <i className="fa-regular fa-clock" style={{ marginRight: '5px' }}></i>{c.duration}
                                     </span>
                                     <Link to="/admission/apply" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: c.accent, color: c.accent === '#f5c518' ? '#0a1628' : '#fff', padding: '7px 16px', borderRadius: '20px', fontSize: '0.76rem', fontFamily: 'var(--font-head)', fontWeight: 700, textDecoration: 'none', transition: 'opacity 0.2s' }}>
                                         Apply <i className="fa-solid fa-arrow-right"></i>

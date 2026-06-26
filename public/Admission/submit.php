@@ -89,6 +89,10 @@ try {
         'application_id' => $appId
     ]);
 } catch (PDOException $e) {
+    // Log detailed query insertion error to local debug log file for Hostinger hPanel inspection
+    $logMsg = "[" . date('Y-m-d H:i:s') . "] Lead Save Failed: " . $e->getMessage() . "\n";
+    file_put_contents(__DIR__ . '/debug.log', $logMsg, FILE_APPEND);
+
     http_response_code(500);
     echo json_encode(['success' => false, 'error' => 'Failed to save application. Please try again.']);
 }

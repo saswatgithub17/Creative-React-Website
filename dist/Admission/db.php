@@ -24,6 +24,10 @@ try {
         ]
     );
 } catch (PDOException $e) {
+    // Log detailed connection error to local debug log file for Hostinger hPanel inspection
+    $logMsg = "[" . date('Y-m-d H:i:s') . "] DB Connection Failed: " . $e->getMessage() . "\n";
+    file_put_contents(__DIR__ . '/debug.log', $logMsg, FILE_APPEND);
+
     http_response_code(500);
     header('Content-Type: application/json');
     echo json_encode([
