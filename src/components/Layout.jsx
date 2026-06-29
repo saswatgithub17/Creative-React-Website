@@ -19,7 +19,7 @@ export default function Layout({ children }) {
             <MarqueeBar />
 
             <header className="site-header angul-header">
-                <AngulPatternBg className="header-pattern" opacity={0.4} />
+                <AngulPatternBg className="header-pattern" opacity={0.15} />
 
                 <div className="header-main">
                     <div className="header-brand">
@@ -40,7 +40,6 @@ export default function Layout({ children }) {
 
                     <div className="header-side-group">
                         <div className="header-affiliations">
-                            <p className="header-side-label">Accreditations</p>
                             <div className="header-logos">
                                 <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/aicte.png" alt="AICTE" title="AICTE Approved" />
                                 <img src="/CTC NEW REACT WEBSITE/images/HOMEPAGE/utkal.png" alt="Utkal University" title="Utkal University Affiliated" />

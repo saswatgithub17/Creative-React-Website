@@ -49,6 +49,7 @@ const navItems = [
         children: [
             { label: 'LOA 2024-25', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/LOA Report 2024-2025.PDF', external: true, newTab: true },
             { label: 'EOA 2025-26', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 2025-26.PDF', external: true, newTab: true },
+            { label: 'EOA 2026-27', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 26-27.PDF', external: true, newTab: true },
             { label: 'Documents', to: '/aicte/documents' },
             { label: 'Mandatory Disclosure', to: '/aicte/mandatory-disclosure' },
         ],
@@ -212,27 +213,27 @@ export default function Navbar() {
         <nav className="navbar angul-navbar">
             <div className="nav-inner">
                 <ul className={`nav-list${menuOpen ? ' open' : ''}`}>
-                {navItems.map((item, i) => {
-                    if (!item.children) {
+                    {navItems.map((item, i) => {
+                        if (!item.children) {
+                            return (
+                                <li key={i} className="nav-item">
+                                    <Link to={item.to}
+                                        className={`nav-link${location.pathname === item.to ? ' active' : ''}`}
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            );
+                        }
                         return (
-                            <li key={i} className="nav-item">
-                                <Link to={item.to}
-                                    className={`nav-link${location.pathname === item.to ? ' active' : ''}`}
-                                    onClick={() => setMenuOpen(false)}
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
+                            <TopLevelItem key={i} item={item}
+                                isMobile={menuOpen}
+                                onClose={() => setMenuOpen(false)}
+                                isActive={location.pathname.startsWith('/' + item.label.toLowerCase())}
+                            />
                         );
-                    }
-                    return (
-                        <TopLevelItem key={i} item={item}
-                            isMobile={menuOpen}
-                            onClose={() => setMenuOpen(false)}
-                            isActive={location.pathname.startsWith('/' + item.label.toLowerCase())}
-                        />
-                    );
-                })}
+                    })}
                 </ul>
             </div>
 

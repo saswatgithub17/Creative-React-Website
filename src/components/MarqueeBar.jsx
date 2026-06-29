@@ -11,9 +11,9 @@ export default function MarqueeBar() {
 
     return (
         <div className="marquee-bar angul-marquee">
-            <div className="marquee-odia-pill" aria-label="Education, Culture, Technology">
+            <div className="marquee-odia-pill" aria-label="Education, Technology, Employment">
                 <i className="fa-solid fa-dharmachakra" aria-hidden="true" />
-                <span>ଶିକ୍ଷା · ସଂସ୍କୃତି · ପ୍ରଯୁକ୍ତି</span>
+                <span>ଶିକ୍ଷା · ପ୍ରଯୁକ୍ତି · ନିଯୁକ୍ତି</span>
             </div>
             <div className="marquee-scroll-area">
                 <div className="marquee-track-wrap">

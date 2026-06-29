@@ -34,7 +34,7 @@ const socials = [
 export default function Footer() {
     return (
         <footer className="site-footer angul-footer">
-            <AngulPatternBg className="footer-pattern" opacity={0.4} />
+            <AngulPatternBg className="footer-pattern" opacity={0.15} />
 
             <div className="footer-top-bar">
                 <div className="footer-top-odia">
