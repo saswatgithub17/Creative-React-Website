@@ -1,13 +1,29 @@
 export default function MarqueeBar() {
-    const text = `ଆମ ମହାବିଦ୍ୟାଳୟ ରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ | Creative Techno College, Angul — AICTE Approved & Affiliated to Utkal University | Admissions Open for 2026-27 | BBA | BCA | B.Sc (CS) | B.Sc (Data Science) | MBA | MCA | 100% Placement Assistance | Contact: +91 9778427170`;
+    const items = [
+        { type: 'en', text: 'Creative Techno College, Angul — AICTE Approved & Utkal University Affiliated' },
+        { type: 'odia', text: 'ଆମ ମହାବିଦ୍ୟାଳୟ ରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ' },
+        { type: 'en', text: 'Admissions Open 2026–27 | BBA | BCA | B.Sc (CS) | B.Sc (Data Science) | MBA | MCA' },
+        { type: 'odia', text: 'ଜୟ ଜଗନ୍ନାଥ · ଅନୁଗୋଳ ର ଗୌରବ' },
+        { type: 'en', text: '100% Placement Assistance | Contact: +91 9778427170' },
+    ];
+
+    const track = [...items, ...items];
 
     return (
-        <div className="marquee-bar">
-            <div className="marquee-track-wrap">
-                <span className="marquee-item">{text}</span>
-                <span className="marquee-item marquee-odia">ଆମ ମହାବିଦ୍ୟାଳୟ ରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ |&nbsp;&nbsp;</span>
-                <span className="marquee-item">{text}</span>
-                <span className="marquee-item marquee-odia">ଆମ ମହାବିଦ୍ୟାଳୟ ରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ |&nbsp;&nbsp;</span>
+        <div className="marquee-bar angul-marquee">
+            <div className="marquee-odia-pill" aria-label="Education, Culture, Technology">
+                <i className="fa-solid fa-dharmachakra" aria-hidden="true" />
+                <span>ଶିକ୍ଷା · ସଂସ୍କୃତି · ପ୍ରଯୁକ୍ତି</span>
+            </div>
+            <div className="marquee-scroll-area">
+                <div className="marquee-track-wrap">
+                    {track.map((item, i) => (
+                        <span key={i} className={`marquee-item${item.type === 'odia' ? ' marquee-odia' : ''}`}>
+                            {item.type === 'odia' && <span className="marquee-dot" aria-hidden="true">✦</span>}
+                            {item.text}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );

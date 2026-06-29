@@ -67,25 +67,27 @@ const navItems = [
     },
 ];
 
-// Inline styles — 100% React-driven, zero CSS-file dependency for show/hide
-const DROPDOWN_BG = '#0a1628';
-const DROPDOWN_HOVER = '#2563eb';
+// Inline styles — dropdown menus (Angul theme colours)
+const DROPDOWN_BG = 'rgba(8, 18, 36, 0.98)';
+const DROPDOWN_HOVER = 'rgba(196, 92, 38, 0.85)';
 const DROPDOWN_TEXT = '#e8f0fe';
 
 const S = {
     dropdown: {
-        position: 'absolute', top: '100%', left: 0, minWidth: 210,
-        background: DROPDOWN_BG, borderRadius: 10,
-        boxShadow: '0 8px 32px rgba(10,22,40,0.35)',
-        listStyle: 'none', padding: '6px 0', margin: 0, zIndex: 9999,
-        border: '1px solid rgba(255,255,255,0.1)',
+        position: 'absolute', top: '100%', left: 0, minWidth: 220,
+        background: DROPDOWN_BG, borderRadius: '0 0 12px 12px',
+        boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
+        listStyle: 'none', padding: '8px 0', margin: 0, zIndex: 9999,
+        border: '1px solid rgba(0,212,255,0.15)',
+        borderTop: '2px solid var(--gold)',
     },
     subDropdown: {
-        position: 'absolute', top: 0, left: '100%', minWidth: 210,
-        background: DROPDOWN_BG, borderRadius: 10,
-        boxShadow: '0 8px 32px rgba(10,22,40,0.35)',
-        listStyle: 'none', padding: '6px 0', margin: 0, zIndex: 9999,
-        border: '1px solid rgba(255,255,255,0.1)',
+        position: 'absolute', top: 0, left: '100%', minWidth: 220,
+        background: DROPDOWN_BG, borderRadius: '0 12px 12px 0',
+        boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
+        listStyle: 'none', padding: '8px 0', margin: 0, zIndex: 9999,
+        border: '1px solid rgba(245,197,24,0.2)',
+        borderTop: '2px solid var(--cyan)',
     },
     mobileNested: {
         position: 'static', boxShadow: 'none', borderRadius: 0,
@@ -95,14 +97,14 @@ const S = {
     },
     li: { position: 'relative' },
     link: {
-        display: 'block', padding: '9px 20px', color: DROPDOWN_TEXT,
-        textDecoration: 'none', fontSize: '0.88rem', fontWeight: 600,
-        whiteSpace: 'nowrap',
+        display: 'block', padding: '10px 20px', color: DROPDOWN_TEXT,
+        textDecoration: 'none', fontSize: '0.84rem', fontWeight: 600,
+        whiteSpace: 'nowrap', transition: 'all 0.2s ease',
     },
     trigger: {
-        display: 'flex', alignItems: 'center', gap: 6,
-        padding: '9px 20px', color: DROPDOWN_TEXT,
-        fontSize: '0.88rem', fontWeight: 600,
+        display: 'flex', alignItems: 'center', gap: 8,
+        padding: '10px 20px', color: DROPDOWN_TEXT,
+        fontSize: '0.84rem', fontWeight: 600,
         whiteSpace: 'nowrap', cursor: 'pointer', userSelect: 'none',
     },
 };
@@ -122,8 +124,8 @@ function DropdownItem({ item, isMobile, onClose }) {
             : <Link to={item.to} style={S.link} onClick={onClose}>{item.label}</Link>;
         return (
             <li style={S.li}
-                onMouseEnter={e => e.currentTarget.querySelector('a,span')?.style && (e.currentTarget.style.background = '#2563eb')}
-                onMouseLeave={e => (e.currentTarget.style.background = '')}
+                onMouseEnter={e => { e.currentTarget.style.background = DROPDOWN_HOVER; }}
+                onMouseLeave={e => { e.currentTarget.style.background = ''; }}
             >{linkEl}</li>
         );
     }
@@ -135,7 +137,7 @@ function DropdownItem({ item, isMobile, onClose }) {
             onMouseEnter={!isMobile ? hoverOn : undefined}
             onMouseLeave={!isMobile ? hoverOff : undefined}
         >
-            <div style={{ ...S.trigger, background: open ? '#2563eb' : '' }}
+            <div style={{ ...S.trigger, background: open ? DROPDOWN_HOVER : '' }}
                 onClick={isMobile ? toggle : undefined}
             >
                 {item.label}
@@ -207,8 +209,9 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="navbar">
-            <ul className={`nav-list${menuOpen ? ' open' : ''}`}>
+        <nav className="navbar angul-navbar">
+            <div className="nav-inner">
+                <ul className={`nav-list${menuOpen ? ' open' : ''}`}>
                 {navItems.map((item, i) => {
                     if (!item.children) {
                         return (
@@ -230,7 +233,9 @@ export default function Navbar() {
                         />
                     );
                 })}
-            </ul>
+                </ul>
+            </div>
+
             <button className={`hamburger${menuOpen ? ' open' : ''}`}
                 onClick={() => setMenuOpen(p => !p)}
                 aria-label="Toggle menu"

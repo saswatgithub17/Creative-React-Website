@@ -306,7 +306,7 @@ export default function Home() {
         <>
             {/* ── Per-page SEO ── */}
             <SEO
-                title="Top College in Angul & Odisha | BBA, BCA, MBA & Data Science | CTC"
+                title="Creative Techno College, Angul| Top College in Angul & Odisha | BBA, BCA, MBA & Data Science | CTC"
                 noSuffix
                 description="Welcome to Creative Techno College, the best residential college in Angul, Odisha. Offering top AI, Data Science, BCA, BBA, MBA & MCA courses with excellent placement."
                 keywords="top college in angul, best college angul, best residential college in odisha, top technical college angul, top professional college angul, BCA college angul, BBA college angul, AICTE college angul, creative techno college angul, college in angul odisha"
@@ -336,7 +336,7 @@ export default function Home() {
                         Looking for the <strong>best college in Angul</strong> to kickstart your career? At Creative Techno College (CTC), we pride ourselves on being the <strong>top educational institution in Angul</strong> and a premier destination for students across the state. Whether you are an aspiring software developer or a future business leader, CTC is recognized as the <strong>best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Odisha</strong>.
                     </p>
                     <p>
-                        As the demand for modern tech skills skyrockets, we offer the <strong>top Data Science course in Odisha</strong> and the <strong>top AI course in Angul</strong>, providing students with career-oriented learning and hands-on skill development. Beyond undergraduate excellence, CTC stands as the <strong>top MBA and MCA College in Angul</strong>, bridging the gap between academic theory and corporate expectations. 
+                        As the demand for modern tech skills skyrockets, we offer the <strong>top Data Science course in Odisha</strong> and the <strong>top AI course in Angul</strong>, providing students with career-oriented learning and hands-on skill development. Beyond undergraduate excellence, CTC stands as the <strong>top MBA and MCA College in Angul</strong>, bridging the gap between academic theory and corporate expectations.
                     </p>
                     <p>
                         Experience modern education within the <strong>best residential college in Odisha</strong>, featuring state-of-the-art infrastructure, secure hostel facilities, and a vibrant campus life designed for your success. We provide a world-class education with <strong>95% placement assistance</strong> and partnerships with 100+ top recruiting companies.
