@@ -42,7 +42,7 @@ const navItems = [
             { label: 'EOA 2025-26', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 2025-26.PDF', external: true, newTab: true },
             { label: 'EOA 2026-27', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 26-27.PDF', external: true, newTab: true },
             { label: 'Documents', to: '/aicte/documents' },
-            { label: 'Mandatory Disclosure', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/Mandatory Disclosure.PDF', external: true, newTab: true },
+            { label: 'Mandatory Disclosure', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/Mandatory Disclosure.pdf', external: true, newTab: true },
         ],
     },
     { label: 'CKF Skills', to: '/ckf-skills' },
