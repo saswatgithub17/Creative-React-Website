@@ -36,22 +36,13 @@ const navItems = [
     { label: 'Gymkhana', to: '/gymkhana' },
     { label: 'Gallery', to: '/gallery' },
     {
-        label: 'IQAC',
-        children: [
-            { label: 'IQAC Item 1', to: '/iqac/item1' },
-            { label: 'IQAC Item 2', to: '/iqac/item2' },
-            { label: 'IQAC Item 3', to: '/iqac/item3' },
-            { label: 'IQAC Item 4', to: '/iqac/item4' },
-        ],
-    },
-    {
         label: 'AICTE',
         children: [
             { label: 'LOA 2024-25', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/LOA Report 2024-2025.PDF', external: true, newTab: true },
             { label: 'EOA 2025-26', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 2025-26.PDF', external: true, newTab: true },
             { label: 'EOA 2026-27', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/EOA Report 26-27.PDF', external: true, newTab: true },
             { label: 'Documents', to: '/aicte/documents' },
-            { label: 'Mandatory Disclosure', to: '/aicte/mandatory-disclosure' },
+            { label: 'Mandatory Disclosure', to: '/CTC NEW REACT WEBSITE/images/HOMEPAGE/Mandatory Disclosure.PDF', external: true, newTab: true },
         ],
     },
     { label: 'CKF Skills', to: '/ckf-skills' },
