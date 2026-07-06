@@ -15,7 +15,8 @@ function useReveal() {
 /* All staff members */
 const team = [
     { name: 'Mr. Manoj Kumar Das', designation: 'Dean (Academic)', qualification: '23 Years Experience', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Dean Sir.jpg', email: 'dasmanojp@gmail.com', role: 'admin' },
-    { name: 'Mr. Krishnashis Mishra', designation: 'Principal', qualification: 'M.Tech (CSE) · 15 Yrs', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Principal Sir.jpg', email: 'principal.creativecollege@gmail.com', role: 'admin' },
+    { name: 'Mr. Krishnashis Mishra', designation: 'Principal (UG)', qualification: 'M.Tech (CSE) · 15 Yrs', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Principal Sir.jpg', email: 'principal.creativecollege@gmail.com', role: 'admin' },
+    { name: 'Dr. Mahima Prakashain Sahoo', designation: 'Principal (PG)', qualification: 'Ph.D · Management', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Mahima Sir.jpeg', email: '', role: 'admin' },
     { name: 'Mr. Bhabani Sankar Sahoo', designation: 'Vice Principal', qualification: 'M.Tech (CSE) · 7 Yrs', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Bhabani Sir.jpg', email: 'bhabaniwipro89@gmail.com', role: 'admin' },
     { name: 'Mr. Subhrajyoti Behera', designation: 'HOD — Management Faculty', qualification: 'MBA (Marketing)', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Subhrajyoti Sir.jpg', email: 'subhyrajyoticafpl@gmail.com', role: 'mgmt' },
     { name: 'Ms. Neha Solanki', designation: 'Management Faculty', qualification: 'M.Com', img: '/CTC NEW REACT WEBSITE/images/OURTEAM/Neha Mam.jpg', email: 'nehasolanki1411@gmail.com', role: 'mgmt' },
@@ -331,8 +332,8 @@ export default function OurTeam() {
             <div className="page-hero">
                 <div className="page-hero-dots" />
                 <span className="section-label">Meet The People</span>
-                <h1>Our <span>Team</span></h1>
-                <p>Dedicated educators and professionals shaping the future of our students</p>
+                <h1>Our <span>Faculties</span></h1>
+                <p>Dedicated faculty and professionals shaping the future of our students</p>
             </div>
 
             {/* Team header with search */}

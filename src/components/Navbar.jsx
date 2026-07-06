@@ -8,7 +8,7 @@ const navItems = [
         children: [
             { label: 'About Trust', to: '/about/trust' },
             { label: 'About CTC', to: '/about/ctc' },
-            { label: 'Our Team', to: '/about/team' },
+            { label: 'Our Faculties', to: '/about/team' },
         ],
     },
     { label: 'Admission', to: '/admission' },
@@ -55,9 +55,17 @@ const navItems = [
         ],
     },
     { label: 'CKF Skills', to: '/ckf-skills' },
+    {
+        label: 'Committee',
+        children: [
+            { label: 'ICC', to: '/icc' },
+            { label: 'SC/ST', to: '/committee/scst' },
+            { label: 'IQAC', to: '/committee/iqac' },
+            { label: 'EQFC', to: '/committee/eqfc' },
+            { label: 'GRC', to: '/grc' },
+        ],
+    },
     { label: 'Contacts', to: '/contacts' },
-    { label: 'ICC', to: '/icc' },
-    { label: 'GRC', to: '/grc' },
     {
         label: 'Logins',
         children: [
@@ -68,43 +76,46 @@ const navItems = [
     },
 ];
 
-// Inline styles — dropdown menus (Angul theme colours)
-const DROPDOWN_BG = 'rgba(8, 18, 36, 0.98)';
-const DROPDOWN_HOVER = 'rgba(196, 92, 38, 0.85)';
+// Dark navy dropdown — matches reference image exactly (no pattern)
+const DROPDOWN_BG = '#0d1b2e';
+const DROPDOWN_HOVER = 'rgba(255,255,255,0.06)';
 const DROPDOWN_TEXT = '#e8f0fe';
 
 const S = {
     dropdown: {
-        position: 'absolute', top: '100%', left: 0, minWidth: 220,
-        background: DROPDOWN_BG, borderRadius: '0 0 12px 12px',
-        boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
-        listStyle: 'none', padding: '8px 0', margin: 0, zIndex: 9999,
-        border: '1px solid rgba(0,212,255,0.15)',
-        borderTop: '2px solid var(--gold)',
+        position: 'absolute', top: '100%', left: 0, minWidth: 200,
+        backgroundColor: DROPDOWN_BG,
+        borderRadius: '0 0 10px 10px',
+        boxShadow: '0 12px 32px rgba(0,0,0,0.4)',
+        listStyle: 'none', padding: '6px 0', margin: 0, zIndex: 9999,
+        border: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '2px solid #f5c518',
     },
     subDropdown: {
-        position: 'absolute', top: 0, left: '100%', minWidth: 220,
-        background: DROPDOWN_BG, borderRadius: '0 12px 12px 0',
-        boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
-        listStyle: 'none', padding: '8px 0', margin: 0, zIndex: 9999,
-        border: '1px solid rgba(245,197,24,0.2)',
-        borderTop: '2px solid var(--cyan)',
+        position: 'absolute', top: 0, left: '100%', minWidth: 200,
+        backgroundColor: DROPDOWN_BG,
+        borderRadius: '0 10px 10px 0',
+        boxShadow: '0 12px 32px rgba(0,0,0,0.4)',
+        listStyle: 'none', padding: '6px 0', margin: 0, zIndex: 9999,
+        border: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '2px solid #f5c518',
+        borderLeft: '1px solid rgba(255,255,255,0.06)',
     },
     mobileNested: {
         position: 'static', boxShadow: 'none', borderRadius: 0,
-        paddingLeft: 18, background: 'rgba(0,0,0,0.2)',
+        paddingLeft: 18, background: 'rgba(0,0,0,0.25)',
         listStyle: 'none', margin: 0,
         border: 'none',
     },
     li: { position: 'relative' },
     link: {
-        display: 'block', padding: '10px 20px', color: DROPDOWN_TEXT,
+        display: 'block', padding: '10px 18px', color: DROPDOWN_TEXT,
         textDecoration: 'none', fontSize: '0.84rem', fontWeight: 600,
-        whiteSpace: 'nowrap', transition: 'all 0.2s ease',
+        whiteSpace: 'nowrap', transition: 'all 0.18s ease',
     },
     trigger: {
         display: 'flex', alignItems: 'center', gap: 8,
-        padding: '10px 20px', color: DROPDOWN_TEXT,
+        padding: '10px 18px', color: DROPDOWN_TEXT,
         fontSize: '0.84rem', fontWeight: 600,
         whiteSpace: 'nowrap', cursor: 'pointer', userSelect: 'none',
     },
@@ -183,9 +194,8 @@ function TopLevelItem({ item, isMobile, onClose, isActive }) {
 
             {open && (
                 <ul style={isMobile
-                    ? { ...S.dropdown, position: 'static', boxShadow: 'none', background: 'rgba(0,0,0,0.2)', border: 'none' }
-                    : S.dropdown}
-                >
+                    ? { ...S.dropdown, position: 'static', boxShadow: 'none', background: 'rgba(0,0,0,0.25)', border: 'none' }
+                    : S.dropdown}>
                     {item.children.map((child, i) => (
                         <DropdownItem key={i} item={child} isMobile={isMobile}
                             onClose={() => { setOpen(false); onClose(); }} />

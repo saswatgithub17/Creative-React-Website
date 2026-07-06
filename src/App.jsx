@@ -22,6 +22,9 @@ import Gallery from './pages/Gallery';
 import Contacts from './pages/Contacts';
 import ICC from './pages/ICC';
 import GRC from './pages/GRC';
+import SCST from './pages/committee/SCST';
+import IQAC from './pages/committee/IQAC';
+import EQFC from './pages/committee/EQFC';
 
 // New Gymkhana pages
 import Technocrat from './pages/gymkhana/Technocrat';
@@ -126,6 +129,11 @@ export default function App() {
 
                     {/* ICC */}
                     <Route path="/icc" element={<ICC />} />
+
+                    {/* Committee Pages */}
+                    <Route path="/committee/scst" element={<SCST />} />
+                    <Route path="/committee/iqac" element={<IQAC />} />
+                    <Route path="/committee/eqfc" element={<EQFC />} />
 
                     {/* GRC */}
                     <Route path="/grc" element={<GRC />} />
