@@ -165,7 +165,7 @@ const CURRENT_PROGRAMS = [
     desc: 'Learn algorithms that allow computers to learn from data without explicit programming. Build real ML models.',
     icon: 'Brain',
     gradient: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)',
-    status: 'upcoming',
+    status: 'ongoing',
     duration: '45 Hours',
     level: 'Intermediate',
     tags: ['Python', 'Scikit-learn', 'TensorFlow'],
@@ -217,10 +217,11 @@ const ADVANTAGES = [
 // ============================================
 const StatusBadge = ({ status }) => {
   const isCompleted = status === 'completed';
+  const isOngoing = status === 'ongoing';
   return (
-    <span className={`status-badge ${isCompleted ? 'completed' : 'upcoming'}`}>
+    <span className={`status-badge ${isCompleted ? 'completed' : isOngoing ? 'ongoing' : 'upcoming'}`}>
       <span className="status-dot" />
-      {isCompleted ? 'Completed' : 'Coming Soon'}
+      {isCompleted ? 'Completed' : isOngoing ? 'Ongoing' : 'Coming Soon'}
     </span>
   );
 };
@@ -486,6 +487,9 @@ export default function ValueAddedCourses() {
         }
         .vac-card-media .status-badge.completed .status-dot {
           background: #10b981;
+        }
+        .vac-card-media .status-badge.ongoing .status-dot {
+          background: #3b82f6;
         }
         .vac-card-media .status-badge.upcoming .status-dot {
           background: #f59e0b;
@@ -870,11 +874,11 @@ export default function ValueAddedCourses() {
                 </div>
                 {prog.link ? (
                   <a href={prog.link} target="_blank" rel="noopener noreferrer" className="vac-btn-outline">
-                    {prog.status === 'completed' ? 'View Details' : 'Register'} <Icon name="ArrowRight" />
+                    {['completed', 'ongoing'].includes(prog.status) ? 'View Details' : 'Register'} <Icon name="ArrowRight" />
                   </a>
                 ) : (
                   <Link to="/contacts" className="vac-btn-outline">
-                    {prog.status === 'completed' ? 'View Details' : 'Register'} <Icon name="ArrowRight" />
+                    {['completed', 'ongoing'].includes(prog.status) ? 'View Details' : 'Register'} <Icon name="ArrowRight" />
                   </Link>
                 )}
               </div>
@@ -893,7 +897,7 @@ export default function ValueAddedCourses() {
 
         {/* Filter */}
         <div className="vac-filter-bar">
-          {[['all', 'All Courses'], ['completed', 'Completed'], ['upcoming', 'Upcoming']].map(([val, lbl]) => (
+          {[['all', 'All Courses'], ['completed', 'Completed'], ['ongoing', 'Ongoing'], ['upcoming', 'Upcoming']].map(([val, lbl]) => (
             <button
               key={val}
               className={`vac-filter-btn ${activeFilter === val ? 'active' : ''}`}
