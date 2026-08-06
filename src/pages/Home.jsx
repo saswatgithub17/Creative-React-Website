@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import LocalBusinessSchema from '../components/LocalBusinessSchema';
+import DigitalNoticeBoard from '../components/DigitalNoticeBoard';
 
 /* ── Admission Banner Popup ── */
 const bannerSlides = [
@@ -329,23 +330,8 @@ export default function Home() {
 
             {/* About */}
             <section className="home-about">
-                <div className="home-about-text reveal-left">
-                    <span className="section-label">Welcome to Creative Techno College</span>
-                    <h2 className="section-title">The <span>Best College in Angul, Odisha</span></h2>
-                    <p>
-                        Looking for the <strong>best college in Angul</strong> to kickstart your career? At Creative Techno College (CTC), we pride ourselves on being the <strong>top educational institution in Angul</strong> and a premier destination for students across the state. Whether you are an aspiring software developer or a future business leader, CTC is recognized as the <strong>best Bsc.CS(H), BCA, BBA and BSc.DS(H) college in Odisha</strong>.
-                    </p>
-                    <p>
-                        As the demand for modern tech skills skyrockets, we offer the <strong>top Data Science course in Odisha</strong> and the <strong>top AI course in Angul</strong>, providing students with career-oriented learning and hands-on skill development. Beyond undergraduate excellence, CTC stands as the <strong>top MBA and MCA College in Angul</strong>, bridging the gap between academic theory and corporate expectations.
-                    </p>
-                    <p>
-                        Experience modern education within the <strong>best residential college in Odisha</strong>, featuring state-of-the-art infrastructure, secure hostel facilities, and a vibrant campus life designed for your success. We provide a world-class education with <strong>95% placement assistance</strong> and partnerships with 100+ top recruiting companies.
-                    </p>
-                    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/about/ctc" className="btn-primary">
-                            <i className="fa-solid fa-circle-info"></i> Learn More
-                        </Link>
-                    </div>
+                <div className="home-about-text reveal-left" style={{ padding: '0 20px', maxWidth: '600px', width: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <DigitalNoticeBoard />
                 </div>
 
                 <div className="director-spotlight reveal-right">

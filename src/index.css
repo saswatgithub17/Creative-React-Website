@@ -1420,7 +1420,7 @@ button {
   display: flex;
   gap: 60px;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
 }
 
 .home-about-text {

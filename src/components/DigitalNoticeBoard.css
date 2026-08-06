@@ -1,0 +1,202 @@
+.dnb-container {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(10, 22, 40, 0.08), 0 1px 3px rgba(10, 22, 40, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 500px;
+    border: 1px solid rgba(26, 58, 107, 0.08);
+}
+
+.dnb-header {
+    display: flex;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    position: relative;
+}
+
+.dnb-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--angul-ochre) 100%);
+}
+
+.dnb-tab {
+    flex: 1;
+    padding: 16px 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dnb-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dnb-tab.active {
+    color: var(--gold);
+    background: rgba(255, 255, 255, 0.08);
+    text-shadow: 0 2px 10px rgba(245, 197, 24, 0.3);
+}
+
+.dnb-tab i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.dnb-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    background: #fafcff;
+}
+
+.dnb-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dnb-table th {
+    background: rgba(235, 244, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--blue-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid rgba(26, 58, 107, 0.1);
+}
+
+.dnb-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(26, 58, 107, 0.05);
+    vertical-align: top;
+    transition: all 0.3s ease;
+}
+
+.dnb-table tbody tr {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #ffffff;
+}
+
+.dnb-table tbody tr:hover {
+    background: #f0f7ff;
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--blue-light);
+}
+
+.dnb-table td:first-child {
+    font-weight: 700;
+    color: var(--blue-light);
+    font-size: 1.1rem;
+}
+
+.dnb-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.dnb-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+.dnb-desc {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.dnb-new-badge {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5253 100%);
+    color: #fff;
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(238, 82, 83, 0.4);
+    animation: pulse-red 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dnb-file-icon {
+    color: var(--blue-mid);
+    font-size: 1rem;
+    background: rgba(30, 77, 140, 0.1);
+    padding: 6px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dnb-table tbody tr:hover .dnb-file-icon {
+    background: var(--blue-mid);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.dnb-loading, .dnb-empty {
+    text-align: center !important;
+    padding: 40px !important;
+    color: #718096;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Custom scrollbar for DNB content */
+.dnb-content::-webkit-scrollbar {
+    width: 8px;
+}
+.dnb-content::-webkit-scrollbar-track {
+    background: #f1f5f9; 
+}
+.dnb-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 10px;
+    border: 2px solid #f1f5f9;
+}
+.dnb-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+}
+
+@keyframes pulse-red {
+    0% {
+        box-shadow: 0 0 0 0 rgba(238, 82, 83, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(238, 82, 83, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(238, 82, 83, 0);
+    }
+}
